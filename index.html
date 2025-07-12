@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join our mission to Namibia</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72" tabindex="0">
+
+<!-- Navbar -->
+<nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Namibia Mission</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon" style="color:white;">☰</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tax-benefit">Tax Benefit</a></li>
+        <li class="nav-item"><a class="nav-link" href="#donate">Donate</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header 
+<header class="fade-in">
+  <h1>Join our mission to Namibia</h1>
+  <a href="#about" class="header-button">Learn More</a>
+</header>-->
+
+<header class="fade-in">
+    <div class="header-content">
+      <h1>Join our mission to Namibia</h1>
+      <a href="#about" class="header-button">Learn More</a>
+    </div>
+  </header>
+  
+
+<!-- Main content -->
+<div class="content">
+
+  <!-- About Section -->
+  <section id="about" class="about-section fade-in">
+    <h2>About our trip</h2>
+    <img src="img/julia.jpg" alt="Julia – Volunteer" />
+    <p>Hi, I'm Julia!</p>
+    <p>
+      This autumn, I’m joining a volunteer team at a
+      <a href="https://ywamwindhoek.org/" target="_blank" class="header-button" style="color:#ffb347; background:none; padding:0;">YWAM base in Windhoek, Namibia</a>
+      to support local communities through education, creative workshops, and practical outreach for 2 weeks! Your support directly contributes to the impact we’ll make together.
+    </p>
+    <p>
+      It’s a privilege to be able to go, but real change doesn’t stop when we leave. That’s why we’re raising money — not just for the work we’ll do while we’re there, but to help sustain and strengthen the community long after our two-week trip ends. Your support helps empower communities through education and outreach.
+    </p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="project-gallery fade-in">
+    <h2>Our Project Gallery</h2>
+    <p>See more of the beautiful moments we've shared with the communities in Namibia in previous years.</p>
+    <div class="gallery-filters">
+      <button class="active" onclick="filterGallery('all')">All</button>
+      <button onclick="filterGallery('kids')">Kids</button>
+      <button onclick="filterGallery('women')">Women Workshop</button>
+      <button onclick="filterGallery('youth')">Youth</button>
+      <button onclick="filterGallery('garden')">Garden Project</button>
+    </div>
+    <div class="gallery-grid">
+      <img src="img/namibia-children.png" alt="Kids project" class="gallery-item kids" />
+      <img src="img/namibia-children1.png" alt="More with children" class="gallery-item kids" />
+      <img src="img/namibia-children2.png" alt="Kids project" class="gallery-item kids" />
+      <img src="img/namibia-children3.png" alt="More with children" class="gallery-item kids" />
+      <img src="img/women1.png" alt="Women project" class="gallery-item women" />
+      <img src="img/women2.png" alt="Women project" class="gallery-item women" />
+      <img src="img/women3.png" alt="Workshop with women" class="gallery-item women" />
+      <img src="img/women4.png" alt="Workshop with women" class="gallery-item women" />
+      <img src="img/youth.png" alt="Youth project" class="gallery-item youth" />
+      <img src="img/youth2.png" alt="Youth project" class="gallery-item youth" />
+      <img src="img/build.png" alt="Garden project" class="gallery-item garden" />
+      <img src="img/build1.png" alt="Garden project" class="gallery-item garden" />
+    </div>
+  </section>
+
+  <!-- Tax Benefit Section -->
+  <section id="tax-benefit" class="tax-benefit fade-in">
+    <h2>Are You a Dutchie?</h2>
+    <p>
+      Good news! If you live in the Netherlands, your donation is <strong>tax-deductible</strong> through our trusted partner Motion church based in Utrecht.
+    </p>
+    <p>
+      That means you can claim your donation in your Belastingaangifte (tax return) and potentially receive money back.
+    </p>
+  </section>
+
+  <!-- Donate Section -->
+<section id="donate" class="qr-card fade-in">
+    <h2 style="margin-bottom: 1.5rem;">How to Donate</h2>
+  
+    <p style="font-style: italic; margin-bottom: 25px;">
+      We truly appreciate your support — every little bit helps us make a big difference in Namibia. So, thank you! 💛
+    </p>
+    <p style="margin-top: 20px; text-align: center;">
+        <strong>Please include "Julia" in the payment description</strong> so your gift can be properly linked to this volunteer trip.
+      </p>
+  
+    <a href="https://payment-links.mollie.com/payment/JcErEj2t4WMbwjGekFtFE" target="_blank" class="donate-button">Donate Here</a>
+  
+    <p style="margin-top: 30px; font-weight: 500;">
+      OR you can scan the QR code below to donate:
+    </p>
+  
+    <img src="img/qrCodeMotion.png" alt="Donate QR Code" class="qr-code" />
+  
+  </section>
+  
+  <section id="thank-you" class="fade-in">
+    <p>💛 Thank you so much for helping or donating — you’re amazing and truly making a difference!</p>
+  </section>
+  
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>With love and gratitude, Julia Zaha</p>
+  <p>
+    For any questions or extra information please contact me at:
+    <a href="#" id="email-link">[Click to email]</a>
+  </p>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Navbar shrink script -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const navbarShrink = () => {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY === 0) {
+        nav.classList.remove('navbar-shrink');
+      } else {
+        nav.classList.add('navbar-shrink');
+      }
+    };
+    navbarShrink();
+    document.addEventListener('scroll', navbarShrink);
+
+    // Collapse responsive navbar on nav-link click
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navLinks = document.querySelectorAll('#navbarResponsive .nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.getComputedStyle(navbarToggler).display !== 'none') {
+          navbarToggler.click();
+        }
+      });
+    });
+
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Gallery filter function
+    window.filterGallery = function(filter) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filters button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.gallery-filters button[onclick="filterGallery('${filter}')"]`).classList.add('active');
+      items.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    };
+
+    // Initialize gallery filter to 'all'
+    filterGallery('all');
+
+    // Dynamic email link to avoid spam bots
+    const email = ['julia', 'tripnamibia', 'at', 'gmail', 'dot', 'com'];
+    const emailLink = document.getElementById('email-link');
+    emailLink.href = 'mailto:' + email[0] + '.' + email[1] + '@' + email[3] + '.com';
+    emailLink.textContent = 'julia.tripnamibia@gmail.com';
+  });
+</script>
+</body>
+</html>
