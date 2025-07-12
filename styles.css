@@ -17,6 +17,7 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  padding-top: 100px;
   padding: 0 1rem;
   text-align: center;
 }
@@ -376,6 +377,12 @@ header nav.navbar .navbar-brand {
   display: block;
   max-width: 200px;
   margin: 20px auto;
+}
+
+#mainNav {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease;
+  box-shadow: none !important;
 }
 
 #mainNav .nav-link {
