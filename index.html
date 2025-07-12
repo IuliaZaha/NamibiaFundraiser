@@ -7,6 +7,8 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Free CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -63,12 +65,59 @@
     <p>
       This autumn, I’m joining a volunteer team at a
       <a href="https://ywamwindhoek.org/" target="_blank" class="header-button" style="color:#ffb347; background:none; padding:0;">YWAM base in Windhoek, Namibia</a>
-      to support local communities through education, creative workshops, and practical outreach for 2 weeks! Your support directly contributes to the impact we’ll make together.
+      to support local communities through education, creative workshops, and practical outreach for 2 weeks! .
     </p>
     <p>
       It’s a privilege to be able to go, but real change doesn’t stop when we leave. That’s why we’re raising money — not just for the work we’ll do while we’re there, but to help sustain and strengthen the community long after our two-week trip ends. Your support helps empower communities through education and outreach.
     </p>
   </section>
+
+
+<!-- How We're Helping Section -->
+<section class="page-section" id="how-we-help">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">How We're Helping the Community</h2>
+      <h3 class="section-subheading text-muted">These are the local initiatives we’re supporting while in Namibia.</h3>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-6 mb-5">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-hands-helping fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">Project 20</h4>
+        <p class="text-muted">A 6-month journey that helps families break the cycle of poverty through goal setting, budgeting, spiritual support, and mentorship. Project 20 equips each family with the tools they need to live with dignity and independence.</p>
+      </div>
+      <div class="col-md-6 mb-5">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-female fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">SuperWoman</h4>
+        <p class="text-muted">A girls-only program in Okahandja Park, offering 13–18 year olds a safe space to grow emotionally, spiritually, and socially. Through mentorship, discussions, and creative activities, they gain confidence and tools to face everyday challenges.</p>
+      </div>
+      <div class="col-md-6 mb-5">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-child fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">Kids Club</h4>
+        <p class="text-muted">Every Thursday, over 400 children come together for songs, stories, games, and encouragement. Kids Club is pure joy — a chance to be seen, loved, and spiritually uplifted in a safe community space.</p>
+      </div>
+      <div class="col-md-6 mb-5">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-users fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">Youth Club</h4>
+        <p class="text-muted">Focused on teens and young adults, Youth Club offers deeper fellowship and purpose-driven outreach. Through honest conversations, shared meals, and spiritual input, it empowers young people to grow into leaders in their own communities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Gallery Section -->
   <section id="gallery" class="project-gallery fade-in">
@@ -215,5 +264,20 @@
     emailLink.textContent = 'julia.tripnamibia@gmail.com';
   });
 </script>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const nav = document.getElementById('mainNav');
+    const about = document.getElementById('about');
+    const aboutOffset = about.offsetTop;
+
+    if (window.scrollY >= aboutOffset - 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
 </body>
 </html>

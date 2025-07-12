@@ -1,346 +1,439 @@
-/* General body and font */
+/* === General Body and Font === */
 body {
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #000; /* black background */
-    color: #333;
-  }
-  
-/* Header with Namibia flag background and centered content */
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* black background */
+  color: #333;
+}
+
+/* === Header with Namibia flag background and centered content === */
 header {
-    background: url('img/flag.jpg') center/cover no-repeat;
-    height: 100vh;
-    color: white;
-    text-align: center;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    overflow: hidden;
-  }
-  
-  /* Dark overlay over image */
-  header::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-  }
-  
-  /* Fade to black at bottom */
-  header::after {
-    content: "";
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-    z-index: 2;
-  }
-  
-  /* Container for title + button */
-  .header-content {
-    position: relative;
-    z-index: 3;
-  }
-  
-  /* Header title */
-  header h1 {
-    font-weight: 900;
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  /* Learn More button */
-  .header-button {
-    background-color: #ffb347;
-    color: black;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    display: inline-block;
-  }
-  
-  .header-button:hover {
-    background-color: #ffa726;
-    color: white;
-  }
-  
+  background: url('img/flag.jpg') center/cover no-repeat;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
 
-  /* Container for all content, no background color so black bg shows */
-  .content {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
-    background: transparent;
-  }
-  
-  /* About section - black bg with white text, no title */
-  .about-section {
-    background: #000;
-    color: #fff;
-    margin: 40px 0;
-    padding: 20px;
-    border-radius: 0; /* no rounded rectangle */
-    box-shadow: none;
-    text-align: center;
-  }
-  
-  /* About section image */
-  .about-section img {
-    display: block;
-    margin: 20px auto 0 auto;
-    max-width: 140px;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  /* Links inside about section */
-  .about-section a {
-    color: #ffcc70;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .about-section a:hover {
-    color: #fff;
-    text-decoration: underline;
-  }
-  
-  /* Project gallery section - no white box, just text color and margin */
-  .project-gallery {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background: transparent;
-    color: #fff;
-  }
-  
-  /* Gallery section headings */
-  .project-gallery h2 {
-    margin-top: 0;
-    color: #ffcc70;
-  }
-  
-  /* Paragraph text in gallery */
-  .project-gallery p {
-    line-height: 1.6;
-    color: #ccc;
-  }
-  
-  /* Gallery filter buttons */
-  .gallery-filters {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .gallery-filters button {
-    background-color: #222;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .gallery-filters button:hover {
-    background-color: #ffcc70;
-    color: #333;
-  }
-  
-  /* Gallery grid using CSS columns for no gaps and neat flow */
+/* Dark overlay over image */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Fade to black at bottom */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  z-index: 2;
+}
+
+/* Container for title + button */
+.header-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* Header title */
+header h1 {
+  font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Learn More button */
+.header-button {
+  background-color: #ffb347;
+  color: black;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+.header-button:hover {
+  background-color: #ffa726;
+  color: white;
+}
+
+/* === Container for all content, transparent background === */
+.content {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+  background: transparent;
+}
+
+/* === About Section === */
+.about-section {
+  background: #000;
+  color: #fff;
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+.about-section img {
+  display: block;
+  margin: 20px auto 0 auto;
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-section a {
+  color: #ffcc70;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about-section a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* === Project Gallery Section === */
+.project-gallery {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+}
+
+.project-gallery h2 {
+  margin-top: 0;
+  color: #ffcc70;
+}
+
+.project-gallery p {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Gallery filter buttons */
+.gallery-filters {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gallery-filters button {
+  background-color: #222;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gallery-filters button:hover {
+  background-color: #ffcc70;
+  color: #333;
+}
+
+/* Gallery grid using CSS columns */
+.gallery-grid {
+  column-count: 3;
+  column-gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: block;
+  break-inside: avoid;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
   .gallery-grid {
-    column-count: 3;
-    column-gap: 15px;
-    margin-top: 20px;
+    column-count: 2;
   }
-  
-  /* Gallery item images */
-  .gallery-item {
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    object-fit: cover;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: block;
-    break-inside: avoid; /* prevent breaks inside columns */
-  }
-  
-  /* Hover effect on gallery images */
-  .gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  }
-  
-  /* Responsive gallery columns */
-  @media (max-width: 768px) {
-    .gallery-grid {
-      column-count: 2;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .gallery-grid {
-      column-count: 1;
-    }
-  }
-  
-  /* Tax benefit section with subtle orange highlight, no box shadow or border radius */
-  .tax-benefit {
-    background: #000;
-    color: #fff;
-    margin: 40px 0;
-    padding: 20px;
-    border-radius: 0;
-    box-shadow: none;
-    border-left: 8px solid #ffb347;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
-  }
-  
-  .tax-benefit h2 {
-    margin-top: 0;
-    color: #ffb347;
-  }
-  
-  .tax-benefit a {
-    color: #ffb347;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  .tax-benefit a:hover {
-    color: #fff;
-  }
-  
-  /* QR card section - same style as tax-benefit: black bg, white text */
-  .qr-card {
-    background: #000;
-    color: #fff;
-    padding: 20px;
-    margin: 40px auto;
-    border-radius: 0;
-    box-shadow: none;
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  /* Fade In animation on scroll */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-  
-  .fade-in.visible {
-    opacity: 1;
-    transform: none;
-  }
-  
-  /* Footer styles - dark background, lighter text */
-  footer {
-    background: #111;
-    color: #ccc;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-  }
-  
-  /* Footer links */
-  footer a {
-    color: #ffcc70;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
+}
 
-  /*.qr-code {
-    margin-bottom: 30px; /* space below QR code */
-    max-width: 200px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }*/
-  
+@media (max-width: 480px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+}
 
-    
-  header nav.navbar .navbar-brand {
-    color: #fff !important;
-  }
-  
+/* === Tax Benefit Section === */
+.tax-benefit {
+  background: #000;
+  color: #fff;
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 0;
+  box-shadow: none;
+  border-left: 8px solid #ffb347;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+}
 
-  .navbar-brand {
-    color: #ffffff !important;
-    font-weight: bold;
-    font-size: 1.25rem;
-    z-index: 1000; /* ensure it’s on top of overlays */
-  }
-  
-  .donate-button {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: #ffb347;
-    color: #000;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .donate-button:hover {
-    background-color: #ffa726;
-    color: #fff;
-  }
-  
-  .qr-code {
-    display: block;
-    max-width: 200px;
-    margin: 20px auto;
-  }
-  
-  #mainNav .nav-link {
-    color: #fff; /* pure white */
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  #mainNav .nav-link:hover,
-  #mainNav .nav-link:focus {
-    color: #ffcc70; /* warm highlight color */
-  }
-  
-  /* Fix orange section headers */
+.tax-benefit h2 {
+  margin-top: 0;
+  color: #ffb347;
+}
+
+.tax-benefit a {
+  color: #ffb347;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.tax-benefit a:hover {
+  color: #fff;
+}
+
+/* === QR Card Section === */
+.qr-card {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Fade In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* === Footer Styles === */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #ffcc70;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* === Navbar === */
+header nav.navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1.25rem;
+  z-index: 1000;
+}
+
+.donate-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #ffb347;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #ffa726;
+  color: #fff;
+}
+
+.qr-code {
+  display: block;
+  max-width: 200px;
+  margin: 20px auto;
+}
+
+#mainNav .nav-link {
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link:focus {
+  color: #ffcc70;
+}
+
+#mainNav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#mainNav.scrolled {
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* === Section Headers === */
 section h2 {
-    color: #ffb347;
-    font-weight: 800;
-    margin-bottom: 20px;
-    text-align: center;
+  color: #ffb347;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Thank-you Section */
+section#thank-you {
+  color: white;
+  background-color: black;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* === PAGE SECTIONS - new section styling for consistency === */
+.page-section {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1000px;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+/* Ensure container inside sections has no white bg */
+.page-section > .container {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Headings inside page-section */
+.page-section h2,
+.page-section h3 {
+  color: #ffb347;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* Paragraph text inside page-section */
+.page-section p {
+  color: #eee;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Icons inside page-section */
+.page-section .fa-stack {
+  color: #ffb347;
+  margin-bottom: 20px;
+}
+
+/* Links inside page-section */
+.page-section a {
+  color: #ffcc70;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.page-section a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .page-section {
+    padding: 30px 15px;
   }
-  
-  /* Make the thank-you text white */
-  section#thank-you {
-    color: white;
-    background-color: black; /* match other dark sections */
-    padding: 60px 20px;
-    text-align: center;
+}
+
+@media (max-width: 480px) {
+  .page-section {
+    padding: 20px 10px;
   }
+}
+
+#how-we-help {
+  background-color: transparent; /* or #000 if you want solid black */
+  color: white;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+#how-we-help h2,
+#how-we-help h3 {
+  color: #ffb347;
+  margin-bottom: 20px;
+}
+#how-we-help .section-subheading {
+  color: white !important;
+  font-weight: normal !important;
+}
+
+#how-we-help p.intro-text {
+  color: white;
+  font-weight: normal;
+}
+
+#how-we-help p,
+#how-we-help span,
+#how-we-help a {
+  color: white !important;
+}
+
+#how-we-help a:hover {
+  color: #ffcc70;
+  text-decoration: underline;
+}
