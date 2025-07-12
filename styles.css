@@ -7,6 +7,44 @@ body {
   color: #333;
 }
 
+header h1 {
+  font-size: clamp(2rem, 10vw, 6rem);
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 4.9rem; /* Keep it big everywhere */
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0 1rem;
+  word-break: break-word;
+  white-space: normal;
+}
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 4rem; /* Still big! Just slightly reduced if needed */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content h1 {
+    font-size: 2.4rem; /* Optional: only if it really overflows */
+  }
+}
+
+
 /* === Header with Namibia flag background and centered content === */
 header {
   background: url('img/flag.jpg') center/cover no-repeat;
@@ -20,7 +58,6 @@ header {
   padding: 0 20px;
   overflow: hidden;
 }
-
 /* Dark overlay over image */
 header::before {
   content: "";
@@ -39,6 +76,46 @@ header::after {
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
   z-index: 2;
 }
+
+    /* Big intro title fixed and centered */
+    .intro-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 100px;         /* big size */
+      position: fixed;
+      top: 40vh;                /* vertical center-ish */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      white-space: nowrap;
+      color: #ffffff;
+      transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    /* Shrunk style after scroll */
+    .intro-title.shrunk {
+      font-size: 40px;
+      top: 10vh;
+      opacity: 0.6;
+    }
+
+    /* Push down content so it's not hidden behind fixed title */
+    .content {
+      margin-top: 140px;
+    }
+
+
+    .header-content {
+  transition: opacity 0.5s ease;
+}
+
+.header-content.hidden {
+  opacity: 0;
+  pointer-events: none; /* optional: disables interaction when hidden */
+}
+
 
 /* Container for title + button */
 .header-content {

@@ -41,16 +41,10 @@
   </div>
 </nav>
 
-<!-- Header 
-<header class="fade-in">
-  <h1>Join our mission to Namibia</h1>
-  <a href="#about" class="header-button">Learn More</a>
-</header>-->
-
 <header class="fade-in">
     <div class="header-content">
-      <h1>Join Our Mission to Namibia</h1>
-      <a href="#about" class="header-button">Learn More</a>
+      <h1 class="intro-title">Join Our Mission to Namibia</h1>
+      <!--<a href="#about" class="header-button">Learn More</a>-->
     </div>
   </header>
   
@@ -276,6 +270,36 @@
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+<script>
+    // Scroll effect for intro title shrink
+    window.addEventListener('scroll', () => {
+      const title = document.querySelector('.intro-title');
+      if (window.scrollY > 50) {
+        title.classList.add('shrunk');
+      } else {
+        title.classList.remove('shrunk');
+      }
+    });
+  </script>
+
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Your existing DOMContentLoaded code here...
+  });
+
+  // New scroll listener to fade out header title
+  window.addEventListener('scroll', () => {
+    const headerContent = document.querySelector('.header-content');
+    const scrollThreshold = 100; // adjust if needed
+
+    if (window.scrollY > scrollThreshold) {
+      headerContent.classList.add('hidden');
+    } else {
+      headerContent.classList.remove('hidden');
     }
   });
 </script>
