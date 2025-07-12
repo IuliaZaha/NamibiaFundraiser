@@ -379,11 +379,6 @@ header nav.navbar .navbar-brand {
   margin: 20px auto;
 }
 
-#mainNav {
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
 #mainNav .nav-link {
   color: #fff;
   font-weight: 600;
