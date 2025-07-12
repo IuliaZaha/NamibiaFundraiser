@@ -380,9 +380,8 @@ header nav.navbar .navbar-brand {
 }
 
 #mainNav {
-  background-color: transparent !important;
+  background-color: transparent;
   transition: background-color 0.3s ease;
-  box-shadow: none !important;
 }
 
 #mainNav .nav-link {
