@@ -147,6 +147,11 @@ header h1 {
   color: white;
 }
 
+.header-title {
+  animation: slideUp 1s ease-out;
+}
+
+
 /* === Container for all content, transparent background === */
 .content {
   max-width: 800px;
