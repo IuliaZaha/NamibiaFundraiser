@@ -13,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+<link rel="icon" href="ico.ico" type="image/x-icon">
+<link rel="shortcut icon" href="ico.ico" type="image/x-icon">
 
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72" tabindex="0">
@@ -48,7 +50,7 @@
 
 <header class="fade-in">
     <div class="header-content">
-      
+      <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
       <h2 class="intro-subtitle">BRING HOPE TO NAMIBIA</h2>
       <!--<a href="#about" class="header-button">Learn More</a>-->
     </div>
@@ -264,6 +266,11 @@
     emailLink.href = 'mailto:' + email[0] + '.' + email[1] + '@' + email[3] + '.com';
     emailLink.textContent = 'julia.tripnamibia@gmail.com';
   });
+</script>
+
+<script>
+  const link = document.querySelector("link[rel~='icon']");
+  if (link) link.href = "/favicon.ico?v=" + new Date().getTime();
 </script>
 
 <script>
