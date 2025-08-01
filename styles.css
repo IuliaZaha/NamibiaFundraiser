@@ -223,6 +223,16 @@ header h1 {
   animation: slideUp 1s ease-out;
 }
 
+.navbar-toggler-icon {
+  background-image: none !important;
+  font-size: 1.5rem; /* or whatever size you want */
+  color: white !important;
+    background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 
 /* === Container for all content, transparent background === */
 .content {
