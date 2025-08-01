@@ -80,21 +80,24 @@ header::after {
 
     /* Big intro title fixed and centered */
     .intro-title {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 900;
-      font-size: 155px;         /* big size */
-      position: fixed;
-      top: 25vh;                /* vertical center-ish */
-      left: 50%;
-      line-height: 1;
-      transform: translateX(-50%);
-      text-align: left;
-      white-space: normal;
-      color: #000;
-      transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
-      z-index: 1000;
-      pointer-events: none;
-    }
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 155px;
+  position: fixed;
+  top: 25vh;
+  left: 50%;
+  line-height: 1;
+  transform: translateX(-50%);
+  text-align: left;
+  white-space: normal;
+  color: #000;
+  transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+  pointer-events: none;
+  max-width: 90vw; /* make sure it doesn't overflow horizontally */
+  word-break: break-word; /* break words if needed */
+}
+
 
 .intro-title.start-hidden {
   opacity: 0;
@@ -137,6 +140,38 @@ header::after {
       top: 10vh;
       opacity: 0.6;
     }
+
+    @media (max-width: 768px) {
+  .intro-title {
+    font-size: 70px;  /* smaller font size on tablets */
+    top: 30vh;        /* adjust vertical position */
+    max-width: 90vw;  /* keep max width */
+    text-align: left; /* center text on smaller screens */
+    transform: translateX(-50%);
+  }
+   .intro-subtitle {
+    font-size: 20px;
+    transform: translateX(-50%);
+    top: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-title {
+    font-size: 60px;  /* even smaller on phones */
+    top: 35vh;
+    max-width: 90vw;
+    text-align: left;
+    transform: translateX(-50%);
+  }
+
+   .intro-subtitle {
+    font-size: 16px;
+    text-align: left;
+    transform: translateX(-50%);
+    top: 65vh;
+  }
+}
 
     /* Push down content so it's not hidden behind fixed title */
     .content {
@@ -197,6 +232,11 @@ header h1 {
   background: transparent;
 }
 
+section {
+  scroll-margin-top: 70px;
+}
+
+
 /* === About Section === */
 .about-section {
   background: #000;
@@ -233,54 +273,57 @@ header h1 {
 
 
 /*TheWhy */
+.why-section {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center;
+}
+
+.why-section h2 {
+  color: #ffb347;
+  font-weight: 800;
+  margin-bottom: 1200px;
+  text-align: center;
+}
+
 .why-counters {
   display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
+  flex-wrap: wrap;         /* allows wrapping on small screens */
+  justify-content: center; /* center items horizontally */
+  gap: 30px;               /* spacing between counters */
+  max-width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  padding-top: 40px;
 }
 
 .counter-item {
+  flex: 1 1 250px;  /* flex-grow:1, flex-shrink:1, base width: 250px */
+  max-width: 300px;
   text-align: center;
-  color: #fff;
-  max-width: 200px;
+  white-space: normal; /* allow text wrapping inside explanation */
 }
+
+
 
 .counter-number {
-  font-family: 'Raleway', sans-serif;
+  white-space: nowrap; /* number and % stay on same line */
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
-  font-size: 5rem;
-  color: #ffb347;
-  display: inline-block;
-  line-height: 1;
-  vertical-align: middle;
-  transition: color 0.3s ease;
+  color: #ffcc70;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 10px;
 }
 
-.counter-item p {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #eee;
-  font-weight: 600;
-}
 
-@media (max-width: 768px) {
-  .counter-number {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .why-counters {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .counter-number {
-    font-size: 2.5rem;
-  }
-}
 
 .why-note {
   color: #efa536;  /* same orange highlight */
@@ -298,6 +341,41 @@ header h1 {
   font-style: italic;
   color: #ffcc70;  /* lighter orange for emphasis */
 }
+
+
+/* Desktop: force 3 counters in one row */
+@media (min-width: 769px) {
+  .why-counters {
+    max-width: none;          /* remove any max-width limiting container */
+    display: flex;
+    flex-wrap: nowrap;        /* no wrap */
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+    overflow-x: visible;      /* prevent scroll */
+  }
+
+  .counter-item {
+    flex: 0 0 30%;            /* each takes ~30% width */
+    max-width: none;          /* remove max-width */
+    min-width: 250px;         /* keep minimum so not squished */
+  }
+}
+
+/* Mobile keeps your existing stacked layout */
+@media (max-width: 768px) {
+  .why-counters {
+    display: flex;
+    flex-wrap: wrap;          /* allow wrap on smaller screens */
+  }
+
+  .counter-item {
+    flex: 1 1 100%;           /* full width on mobile */
+    max-width: 100%;
+    min-width: auto;
+  }
+}
+
 
 
 /* === Project Gallery Section === */
