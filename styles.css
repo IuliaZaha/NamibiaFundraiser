@@ -141,9 +141,37 @@ header::after {
       opacity: 0.6;
     }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .intro-title {
+    top: 20vh;
+    text-align: left;
+    font-size: 6rem;
+  }
+  .intro-subtitle{
+    top: 60vh;
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: 2rem;
+  }
+}
+
+@media (min-height: 1000px) {
+  .intro-title {
+    top: 20vh;
+    text-align: left;
+    font-size: 6rem;
+  }
+  .intro-subtitle{
+    top: 60vh;
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: 2rem;
+  }
+}
+
     @media (max-width: 768px) {
   .intro-title {
-    font-size: 70px;  /* smaller font size on tablets */
+    font-size: 50px;  /* smaller font size on tablets */
     top: 30vh;        /* adjust vertical position */
     max-width: 90vw;  /* keep max width */
     text-align: left; /* center text on smaller screens */
@@ -153,6 +181,7 @@ header::after {
     font-size: 20px;
     transform: translateX(-50%);
     top: 60vh;
+    top: 60dvh;
   }
 }
 
@@ -170,6 +199,7 @@ header::after {
     text-align: left;
     transform: translateX(-50%);
     top: 65vh;
+    top: 65dvh;
   }
 }
 
