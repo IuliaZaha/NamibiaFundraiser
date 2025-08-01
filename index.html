@@ -37,6 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#the-why">The Why</a></li>
         <li class="nav-item"><a class="nav-link" href="#how-we-help">How We Help</a></li>
         <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="#tax-benefit">Tax Benefit</a></li>
@@ -74,6 +75,29 @@
       It’s a privilege to be able to go, but real change doesn’t stop when we leave. That’s why we’re raising money — not just for the work we’ll do while we’re there, but to help sustain and strengthen the community long after our two-week trip ends. Your support helps empower communities through education and outreach.
     </p>
   </section>
+
+
+  <!--The Why section-->
+  <section id="the-why" class="page-section">
+  <h2>The Why</h2>
+  <div class="why-counters">
+    <div class="counter-item">
+      <span class="counter-number" data-target="43">0</span><span>%</span>
+      <p>of Namibians live in multidimensional poverty*</p>
+    </div>
+    <div class="counter-item">
+      <span class="counter-number" data-target="51">0</span><span>%</span>
+      <p>of children are affected by multidimensional poverty*</p>
+    </div>
+    <div class="counter-item">
+      <span class="counter-number" data-target="46">0</span><span>%</span>
+      <p>of female-headed households live in poverty</p>
+    </div>
+  </div>
+  <p class="why-note"><small>* Multidimensional poverty includes deprivations in income, healthcare, education, and living standards.
+<br>These statistics have been provided by UNICEF and OPHI.</em></small></p>
+</section>
+
 
 
 <!-- How We're Helping Section -->
@@ -332,6 +356,48 @@
   });
 
 </script>
+
+<!-- Number count-up animation on scroll into view-->
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = document.querySelectorAll('.counter-number');
+  let counted = false;
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= (window.innerHeight || document.documentElement.clientHeight);
+  }
+
+  function runCounters() {
+    if (counted) return;
+    counters.forEach(counter => {
+      if (isInViewport(counter)) {
+        counted = true;
+        counters.forEach(c => animateCount(c));
+      }
+    });
+  }
+
+  function animateCount(el) {
+    const target = +el.getAttribute('data-target');
+    let count = 0;
+    const increment = Math.ceil(target / 100);
+    const duration = 1500; // ms
+    const stepTime = Math.floor(duration / (target / increment));
+    
+    const timer = setInterval(() => {
+      count += increment;
+      if (count > target) count = target;
+      el.textContent = count;
+      if (count === target) clearInterval(timer);
+    }, stepTime);
+  }
+
+  window.addEventListener('scroll', runCounters);
+  runCounters();  // Run once on load in case already visible
+});
+</script>
+
 
 </body>
 </html>
