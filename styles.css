@@ -159,7 +159,7 @@ header::after {
 @media (max-width: 480px) {
   .intro-title {
     font-size: 50px;  /* even smaller on phones */
-    top: 35vh;
+    top: 25vh;
     max-width: 90vw;
     text-align: left;
     transform: translateX(-50%);
