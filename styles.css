@@ -48,9 +48,9 @@ header {
 
 /* === Header with Namibia flag background and centered content === */
 header {
-  background: url('img/flag.jpg') center/cover no-repeat;
+  background: url('img/cover.png') center/cover no-repeat;
   height: 100vh;
-  color: white;
+  color: black;
   text-align: center;
   position: relative;
   display: flex;
@@ -60,13 +60,13 @@ header {
   overflow: hidden;
 }
 /* Dark overlay over image */
-header::before {
+/*header::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1;
-}
+}*/
 
 /* Fade to black at bottom */
 header::after {
@@ -82,22 +82,58 @@ header::after {
     .intro-title {
       font-family: 'Raleway', sans-serif;
       font-weight: 900;
-      font-size: 100px;         /* big size */
+      font-size: 155px;         /* big size */
       position: fixed;
-      top: 40vh;                /* vertical center-ish */
+      top: 25vh;                /* vertical center-ish */
       left: 50%;
+      line-height: 1;
       transform: translateX(-50%);
+      text-align: left;
+      white-space: normal;
+      color: #000;
+      transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+.intro-title.start-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: none !important; /* disable animation on first render */
+}
+
+    /* Shrunk style after scroll */
+    .intro-title.shrunk {
+      font-size: 50px;
+      top: 10vh;
+      opacity: 0.6;
+    }
+
+    .intro-title.hidden {
+      opacity: 0;
+  pointer-events: none; /* optional: disables interaction when hidden */
+    }
+
+    /* Small subtitle fixed and centered */
+    .intro-subtitle {
+      font-family: 'Sanchez', sans-serif;
+      font-weight: 900;
+      font-size: 40px;         /* big size */
+      position: fixed;
+      top: 70vh;                /* vertical center-ish */
+      left: 50%;
+      transform: translateX(-70%);
       text-align: center;
       white-space: nowrap;
-      color: #ffffff;
+      color: #000;
       transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
       z-index: 1000;
       pointer-events: none;
     }
 
     /* Shrunk style after scroll */
-    .intro-title.shrunk {
-      font-size: 40px;
+    .intro-subtitle.shrunk {
+      font-size: 20px;
       top: 10vh;
       opacity: 0.6;
     }
@@ -183,7 +219,8 @@ header h1 {
 }
 
 .about-section a {
-  color: #ffcc70;
+  /*color: #ffcc70;*/
+  color: #efa536;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -206,7 +243,7 @@ header h1 {
 
 .project-gallery h2 {
   margin-top: 0;
-  color: #ffcc70;
+  color: #efa536
 }
 
 .project-gallery p {
@@ -280,7 +317,7 @@ header h1 {
   padding: 20px;
   border-radius: 0;
   box-shadow: none;
-  border-left: 8px solid #ffb347;
+  border-left: 8px solid #efa536;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -289,17 +326,28 @@ header h1 {
 
 .tax-benefit h2 {
   margin-top: 0;
-  color: #ffb347;
+  color: #efa536;
 }
 
 .tax-benefit a {
-  color: #ffb347;
+  color: #efa536;
   font-weight: bold;
   text-decoration: underline;
 }
 
 .tax-benefit a:hover {
   color: #fff;
+}
+
+.highlighted-note {
+  margin-top: 20px;
+  text-align: center;
+  border: 2px solid #efa536;             /* border in solid orange */
+  background-color: rgba(239, 165, 54, 0.2); /* transparent orange */
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  max-width: 90vw;
 }
 
 /* === QR Card Section === */
@@ -312,6 +360,10 @@ header h1 {
   box-shadow: none;
   max-width: 800px;
   text-align: center;
+}
+
+.qr-code {
+  border-radius: 10px; /* small rounded corners */
 }
 
 /* Fade In Animation */
@@ -336,7 +388,7 @@ footer {
 }
 
 footer a {
-  color: #ffcc70;
+  color: #efa536;
   text-decoration: none;
 }
 

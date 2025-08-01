@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join our mission to Namibia</title>
+  <title>Be part of the story.</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
   <!-- Font Awesome Free CDN -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<!--Google Fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -17,7 +20,7 @@
 <!-- Navbar -->
 <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Namibia Mission</a>
+    <a class="navbar-brand" href="#">Be part of the story.</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -41,9 +44,12 @@
   </div>
 </nav>
 
+<h1 class="intro-title start-hidden"">Be part of<br>the story.</h1>
+
 <header class="fade-in">
     <div class="header-content">
-      <h1 class="intro-title">Join Our Mission to Namibia</h1>
+      
+      <h2 class="intro-subtitle">BRING HOPE TO NAMIBIA</h2>
       <!--<a href="#about" class="header-button">Learn More</a>-->
     </div>
   </header>
@@ -159,8 +165,8 @@
     <p style="font-style: italic; margin-bottom: 25px;">
       We truly appreciate your support — every little bit helps us make a big difference in Namibia. So, thank you! 💛
     </p>
-    <p style="margin-top: 20px; text-align: center;">
-        <strong>Please include "Julia" in the payment description</strong> so your gift can be properly linked to this volunteer trip.
+    <p class= highlighted-note style="margin-top: 20px; text-align: center;">
+        <strong>Please include "JULIA" in the payment description</strong> so your gift can be properly linked to this volunteer trip.
       </p>
   
     <a href="https://payment-links.mollie.com/payment/JcErEj2t4WMbwjGekFtFE" target="_blank" class="donate-button">Donate Here</a>
@@ -169,7 +175,7 @@
       OR you can scan the QR code below to donate:
     </p>
   
-    <img src="img/qrCodeMotion.png" alt="Donate QR Code" class="qr-code" />
+    <img src="img/qr.png" alt="Donate QR Code" class="qr-code" />
   
   </section>
   
@@ -275,16 +281,31 @@
 </script>
 
 <script>
-    // Scroll effect for intro title shrink
-    window.addEventListener('scroll', () => {
-      const title = document.querySelector('.intro-title');
-      if (window.scrollY > 50) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const title = document.querySelector('.intro-title');
+    title.classList.remove('start-hidden'); // remove after initial load
+
+    const hideThreshold = 100;
+    const shrinkThreshold = 50;
+
+    function updateTitleState() {
+      if (window.scrollY > hideThreshold) {
+        title.classList.add('hidden');
+      } else {
+        title.classList.remove('hidden');
+      }
+
+      if (window.scrollY > shrinkThreshold) {
         title.classList.add('shrunk');
       } else {
         title.classList.remove('shrunk');
       }
-    });
-  </script>
+    }
+
+    updateTitleState();
+    window.addEventListener('scroll', updateTitleState);
+  });
+</script>
 
   <script>
   window.addEventListener('DOMContentLoaded', () => {
@@ -302,6 +323,7 @@
       headerContent.classList.remove('hidden');
     }
   });
+
 </script>
 
 </body>
