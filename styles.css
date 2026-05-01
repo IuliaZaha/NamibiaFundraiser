@@ -15,23 +15,38 @@ body {
   overflow-x: hidden;
 }
 
-/* === Navbar === */
+/* === Navbar & Progress Bar === */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: var(--orange);
+  z-index: 3000;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 15px rgba(255, 179, 71, 0.8);
+}
+
 #mainNav {
   background-color: transparent;
   padding: 20px 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2000;
 }
 
 #mainNav.navbar-shrink {
-  background-color: rgba(0, 0, 0, 0.95);
-  padding: 10px 0;
-  box-shadow: 0 2px 15px rgba(255, 179, 71, 0.2);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 179, 71, 0.2);
 }
 
 .navbar-brand {
   color: var(--orange) !important;
   font-weight: 900;
+  letter-spacing: -0.5px;
 }
 
 .nav-link {
@@ -87,7 +102,7 @@ header {
 }
 
 .intro-title .accent-color {
-  color: var(--orange);
+  color: var(--orange) !important;
   display: inline-block;
   /* Enhanced depth for the orange text */
   text-shadow: 
@@ -138,14 +153,30 @@ header {
 .wave-to-orange { background-color: var(--orange); }
 .wave-to-black { background-color: var(--black); }
 
-/* === Alternating Sections === */
+/* === Alternating Sections with Texture === */
 section {
   padding: 100px 10%;
   position: relative;
   z-index: 10;
 }
 
-.bg-black { background-color: var(--black); color: #fff; }
+.bg-black { 
+  background: radial-gradient(circle at center, #0d0d0d 0%, #000000 100%);
+  position: relative;
+  color: #fff; 
+}
+
+/* Subtle carbon texture overlay for black sections */
+.bg-black::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .bg-orange { background-color: var(--orange); color: #000; }
 
 .section-heading {
@@ -231,7 +262,7 @@ section {
   color: var(--orange);
 }
 
-/* Why Counters - Center Fixed */
+/* Impact Counters - Expert Refinement */
 .why-counters {
   display: flex;
   flex-wrap: wrap;
@@ -244,18 +275,38 @@ section {
   flex: 1 1 280px;
   max-width: 350px;
   padding: 40px 20px;
-  border: 1px solid #222;
+  border: 1px solid rgba(255, 179, 71, 0.1);
   border-radius: 20px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.02);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-.bg-orange .counter-item { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+.counter-item:hover { transform: translateY(-5px); }
+
+/* Animated orange fill bar at bottom of card */
+.counter-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background: var(--orange);
+  transition: width 2s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+.counter-item.active::after {
+  width: 100%;
+}
 
 .counter-number {
   font-size: 5rem;
   font-weight: 900;
   color: var(--orange);
   display: block;
+  margin-bottom: 10px;
 }
 
 .bg-orange .counter-number { color: #000; }
@@ -296,7 +347,7 @@ section {
 
 .bg-orange .icon-box { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
 
-/* Gallery - No Bleeding */
+/* Gallery - Mobile Optimized Slider */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -308,6 +359,7 @@ section {
   overflow: hidden;
   aspect-ratio: 4 / 3;
   border: 2px solid #222;
+  transition: transform 0.3s ease;
 }
 
 .gallery-item {
@@ -366,4 +418,22 @@ footer { padding: 60px 20px; text-align: center; border-top: 1px solid #111; }
 
 @media (max-width: 768px) {
   section { padding: 80px 7%; }
+
+  /* Gallery Mobile Slider */
+  .gallery-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .gallery-grid::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+  
+  .gallery-item-wrapper {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
 }

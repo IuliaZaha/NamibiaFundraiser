@@ -14,6 +14,8 @@
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
 
+<div id="scrollProgress"></div>
+
 <!-- Navbar -->
 <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
   <div class="container">
@@ -272,10 +274,6 @@
           <p data-i18n="tax_text_2" style="font-size: 1.1rem; margin-bottom: 0; color: #fff; font-weight: 700;">That means you can claim your donation in your Belastingaangifte (tax return) and potentially receive money back.</p>
       </div>
 
-      <p class="highlighted-note" data-i18n="donate_julia_note" style="border-color: #ffb347; color: #fff; font-weight: 900; font-size: 1.2rem;">
-        <strong>Please include "JULIA" in the payment description</strong>
-      </p>
-
       <a href="https://payment-links.mollie.com/payment/JcErEj2t4WMbwjGekFtFE" target="_blank" class="donate-button mt-4" data-i18n="donate_here_btn">Donate Here</a>
       
       <p class="mt-5 fw-bold" style="font-size: 1.3rem;">OR scan the QR code below:</p>
@@ -327,7 +325,8 @@
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[currentLang][key]) {
-          if (translations[currentLang][key].includes('<')) {
+          // Robust check for HTML tags
+          if (translations[currentLang][key].indexOf('<') !== -1) {
               el.innerHTML = translations[currentLang][key];
           } else {
               el.textContent = translations[currentLang][key];
@@ -344,6 +343,12 @@
     
     window.addEventListener('scroll', () => {
       const scrollPos = window.scrollY;
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollPos / totalHeight) * 100;
+      
+      const progressEl = document.getElementById('scrollProgress');
+      if (progressEl) progressEl.style.width = progress + '%';
+
       if (scrollPos > 50) {
         mainNav.classList.add('navbar-shrink');
       } else {
@@ -364,9 +369,9 @@
             entry.target.classList.add('active');
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     
-    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal-up, .counter-item').forEach(el => observer.observe(el));
 
     // Gallery filter
     window.filterGallery = (f) => {
@@ -395,7 +400,7 @@
           counterObserver.unobserve(el);
         }
       });
-    });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.number').forEach(n => counterObserver.observe(n));
   });
 </script>
