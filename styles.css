@@ -1,780 +1,369 @@
-/* === General Body and Font === */
+/* === Base Styles === */
+:root {
+  --orange: #ffb347;
+  --black: #000000;
+  --dark-grey: #0a0a0a;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000; /* black background */
-  color: #333;
-}
-
-header h1 {
-  font-size: clamp(2rem, 10vw, 6rem);
-}
-
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding-top: 100px;
-  padding: 0 1rem;
-  text-align: center;
-}
-
-.header-content h1 {
-  font-size: 4.9rem; /* Keep it big everywhere */
-  font-weight: 900;
-  text-align: center;
-  line-height: 1.1;
-  margin: 0;
-  padding: 0 1rem;
-  word-break: break-word;
-  white-space: normal;
-}
-
-@media (max-width: 768px) {
-  .header-content h1 {
-    font-size: 4rem; /* Still big! Just slightly reduced if needed */
-  }
-}
-
-@media (max-width: 480px) {
-  .header-content h1 {
-    font-size: 2.4rem; /* Optional: only if it really overflows */
-  }
-}
-
-
-/* === Header with Namibia flag background and centered content === */
-header {
-  background: url('img/cover.png') center/cover no-repeat;
-  height: 100vh;
-  color: black;
-  text-align: center;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  overflow: hidden;
-}
-/* Dark overlay over image */
-/*header::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}*/
-
-/* Fade to black at bottom */
-header::after {
-  content: "";
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-  z-index: 2;
-}
-
-    /* Big intro title fixed and centered */
-    .intro-title {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 900;
-  font-size: 155px;
-  position: fixed;
-  top: 25vh;
-  left: 50%;
-  line-height: 1;
-  transform: translateX(-50%);
-  text-align: left;
-  white-space: normal;
-  color: #000;
-  transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
-  z-index: 1000;
-  pointer-events: none;
-  max-width: 90vw; /* make sure it doesn't overflow horizontally */
-  word-break: break-word; /* break words if needed */
-}
-
-
-.intro-title.start-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: none !important; /* disable animation on first render */
-}
-
-    /* Shrunk style after scroll */
-    .intro-title.shrunk {
-      font-size: 50px;
-      top: 10vh;
-      opacity: 0.6;
-    }
-
-    .intro-title.hidden {
-      opacity: 0;
-  pointer-events: none; /* optional: disables interaction when hidden */
-    }
-
-    /* Small subtitle fixed and centered */
-    .intro-subtitle {
-      font-family: 'Sanchez', sans-serif;
-      font-weight: 900;
-      font-size: 40px;         /* big size */
-      position: fixed;
-      top: 70vh;                /* vertical center-ish */
-      left: 50%;
-      transform: translateX(-70%);
-      text-align: center;
-      white-space: nowrap;
-      color: #000;
-      transition: font-size 0.3s ease, top 0.3s ease, opacity 0.3s ease;
-      z-index: 1000;
-      pointer-events: none;
-    }
-
-    /* Shrunk style after scroll */
-    .intro-subtitle.shrunk {
-      font-size: 20px;
-      top: 10vh;
-      opacity: 0.6;
-    }
-
-@media (min-width: 1024px) and (orientation: landscape) {
-  .intro-title {
-    top: 20vh;
-    text-align: left;
-    font-size: 6rem;
-  }
-  .intro-subtitle{
-    top: 60vh;
-    text-align: center;
-    transform: translateX(-50%);
-    font-size: 2rem;
-  }
-}
-
-@media (min-height: 1000px) {
-  .intro-title {
-    top: 20vh;
-    text-align: left;
-    font-size: 6rem;
-  }
-  .intro-subtitle{
-    top: 60vh;
-    text-align: center;
-    transform: translateX(-50%);
-    font-size: 2rem;
-  }
-}
-
-    @media (max-width: 768px) {
-  .intro-title {
-    font-size: 50px;  /* smaller font size on tablets */
-    top: 30vh;        /* adjust vertical position */
-    max-width: 90vw;  /* keep max width */
-    text-align: left; /* center text on smaller screens */
-    transform: translateX(-50%);
-  }
-   .intro-subtitle {
-    font-size: 20px;
-    transform: translateX(-50%);
-    top: 60vh;
-    top: 60dvh;
-  }
-}
-
-@media (max-width: 480px) {
-  .intro-title {
-    font-size: 50px;  /* even smaller on phones */
-    top: 25vh;
-    max-width: 90vw;
-    text-align: left;
-    transform: translateX(-50%);
-  }
-
-   .intro-subtitle {
-    font-size: 16px;
-    text-align: left;
-    transform: translateX(-50%);
-    top: 65vh;
-    top: 65dvh;
-  }
-}
-
-    /* Push down content so it's not hidden behind fixed title */
-    .content {
-      margin-top: 140px;
-    }
-
-
-    .header-content {
-  transition: opacity 0.5s ease;
-}
-
-.header-content.hidden {
-  opacity: 0;
-  pointer-events: none; /* optional: disables interaction when hidden */
-}
-
-
-/* Container for title + button */
-.header-content {
-  position: relative;
-  z-index: 3;
-}
-
-/* Header title */
-header h1 {
-  font-weight: 900;
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-/* Learn More button */
-.header-button {
-  background-color: #ffb347;
-  color: black;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
-}
-
-.header-button:hover {
-  background-color: #ffa726;
-  color: white;
-}
-
-.header-title {
-  animation: slideUp 1s ease-out;
-}
-
-.navbar-toggler-icon {
-  background-image: none !important;
-  font-size: 1.5rem; /* or whatever size you want */
-  color: white !important;
-    background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-
-/* === Container for all content, transparent background === */
-.content {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 0 20px;
-  background: transparent;
-}
-
-section {
-  scroll-margin-top: 70px;
-}
-
-
-/* === About Section === */
-.about-section {
-  background: #000;
+  background-color: var(--black);
   color: #fff;
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 0;
-  box-shadow: none;
-  text-align: center;
-}
-
-.about-section img {
-  display: block;
-  margin: 20px auto 0 auto;
-  max-width: 140px;
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.about-section a {
-  /*color: #ffcc70;*/
-  color: #efa536;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.about-section a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-
-/*TheWhy */
-.why-section {
-  background-color: #000;
-  color: #fff;
-  padding: 60px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center;
-}
-
-.why-section h2 {
-  color: #ffb347;
-  font-weight: 800;
-  margin-bottom: 1200px;
-  text-align: center;
-}
-
-.why-counters {
-  display: flex;
-  flex-wrap: wrap;         /* allows wrapping on small screens */
-  justify-content: center; /* center items horizontally */
-  gap: 30px;               /* spacing between counters */
-  max-width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-  padding-top: 40px;
-}
-
-.counter-item {
-  flex: 1 1 250px;  /* flex-grow:1, flex-shrink:1, base width: 250px */
-  max-width: 300px;
-  text-align: center;
-  white-space: normal; /* allow text wrapping inside explanation */
-}
-
-
-
-.counter-number {
-  white-space: nowrap; /* number and % stay on same line */
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 900;
-  color: #ffcc70;
-  display: inline-flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 10px;
-}
-
-
-
-.why-note {
-  color: #efa536;  /* same orange highlight */
-  font-weight: 600;
-  margin-top: 25px;
-  text-align: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.why-note small em {
-  font-style: italic;
-  color: #ffcc70;  /* lighter orange for emphasis */
-}
-
-
-/* Desktop: force 3 counters in one row */
-@media (min-width: 769px) {
-  .why-counters {
-    max-width: none;          /* remove any max-width limiting container */
-    display: flex;
-    flex-wrap: nowrap;        /* no wrap */
-    justify-content: center;
-    gap: 30px;
-    padding: 0 20px;
-    overflow-x: visible;      /* prevent scroll */
-  }
-
-  .counter-item {
-    flex: 0 0 30%;            /* each takes ~30% width */
-    max-width: none;          /* remove max-width */
-    min-width: 250px;         /* keep minimum so not squished */
-  }
-}
-
-/* Mobile keeps your existing stacked layout */
-@media (max-width: 768px) {
-  .why-counters {
-    display: flex;
-    flex-wrap: wrap;          /* allow wrap on smaller screens */
-  }
-
-  .counter-item {
-    flex: 1 1 100%;           /* full width on mobile */
-    max-width: 100%;
-    min-width: auto;
-  }
-}
-
-
-
-/* === Project Gallery Section === */
-.project-gallery {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  background: transparent;
-  color: #fff;
-}
-
-.project-gallery h2 {
-  margin-top: 0;
-  color: #efa536
-}
-
-.project-gallery p {
   line-height: 1.6;
-  color: #ccc;
-}
-
-/* Gallery filter buttons */
-.gallery-filters {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.gallery-filters button {
-  background-color: #222;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.gallery-filters button:hover {
-  background-color: #ffcc70;
-  color: #333;
-}
-
-/* Gallery grid using CSS columns */
-.gallery-grid {
-  column-count: 3;
-  column-gap: 15px;
-  margin-top: 20px;
-}
-
-.gallery-item {
-  width: 100%;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  display: block;
-  break-inside: avoid;
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
-@media (max-width: 768px) {
-  .gallery-grid {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-grid {
-    column-count: 1;
-  }
-}
-
-/* === Tax Benefit Section === */
-.tax-benefit {
-  background: #000;
-  color: #fff;
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 0;
-  box-shadow: none;
-  border-left: 8px solid #efa536;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1rem;
-}
-
-.tax-benefit h2 {
-  margin-top: 0;
-  color: #efa536;
-}
-
-.tax-benefit a {
-  color: #efa536;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.tax-benefit a:hover {
-  color: #fff;
-}
-
-.highlighted-note {
-  margin-top: 20px;
-  text-align: center;
-  border: 2px solid #efa536;             /* border in solid orange */
-  background-color: rgba(239, 165, 54, 0.2); /* transparent orange */
-  padding: 10px 20px;
-  border-radius: 8px;
-  display: inline-block;
-  max-width: 90vw;
-}
-
-/* === QR Card Section === */
-.qr-card {
-  background: #000;
-  color: #fff;
-  padding: 20px;
-  margin: 40px auto;
-  border-radius: 0;
-  box-shadow: none;
-  max-width: 800px;
-  text-align: center;
-}
-
-.qr-code {
-  border-radius: 10px; /* small rounded corners */
-}
-
-/* Fade In Animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* === Footer Styles === */
-footer {
-  background: #111;
-  color: #ccc;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #efa536;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
+  overflow-x: hidden;
 }
 
 /* === Navbar === */
-header nav.navbar .navbar-brand {
-  color: #fff !important;
+#mainNav {
+  background-color: transparent;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+
+#mainNav.navbar-shrink {
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 10px 0;
+  box-shadow: 0 2px 15px rgba(255, 179, 71, 0.2);
 }
 
 .navbar-brand {
-  color: #ffffff !important;
-  font-weight: bold;
-  font-size: 1.25rem;
-  z-index: 1000;
+  color: var(--orange) !important;
+  font-weight: 900;
 }
 
-.donate-button {
-  display: inline-block;
-  padding: 12px 28px;
-  background-color: #ffb347;
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+.nav-link {
+  color: #fff !important;
+  font-weight: 700;
+  margin: 0 10px;
 }
 
-.donate-button:hover {
-  background-color: #ffa726;
-  color: #fff;
-}
+.nav-link:hover { color: var(--orange) !important; }
 
-.qr-code {
-  display: block;
-  max-width: 200px;
-  margin: 20px auto;
-}
+/* Dropdown */
+.lang-switcher .dropdown-toggle::after { display: none; }
+.lang-switcher .dropdown-menu { background: #111; border: 1px solid var(--orange); }
+.lang-switcher .dropdown-item { color: #fff; font-weight: 600; background: none; border: none; width: 100%; text-align: left; padding: 10px 20px; }
+.lang-switcher .dropdown-item:hover { background: var(--orange); color: #000; }
 
-#mainNav .nav-link {
-  color: #fff;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-#mainNav .nav-link:hover,
-#mainNav .nav-link:focus {
-  color: #ffcc70;
-}
-
-#mainNav {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background-color: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#mainNav.scrolled {
-  background-color: rgba(0, 0, 0, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-
-/* === Section Headers === */
-section h2 {
-  color: #ffb347;
-  font-weight: 800;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Thank-you Section */
-section#thank-you {
-  color: white;
-  background-color: black;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* === PAGE SECTIONS - new section styling for consistency === */
-.page-section {
-  background-color: #000;
-  color: #fff;
-  padding: 40px 20px;
-  margin: 40px auto;
-  max-width: 1000px;
-  border-radius: 0;
-  box-shadow: none;
-  text-align: center;
-}
-
-/* Ensure container inside sections has no white bg */
-.page-section > .container {
-  background-color: transparent;
-  padding: 0;
-}
-
-/* Headings inside page-section */
-.page-section h2,
-.page-section h3 {
-  color: #ffb347;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-/* Paragraph text inside page-section */
-.page-section p {
-  color: #eee;
-  line-height: 1.6;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Icons inside page-section */
-.page-section .fa-stack {
-  color: #ffb347;
-  margin-bottom: 20px;
-}
-
-/* Links inside page-section */
-.page-section a {
-  color: #ffcc70;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.page-section a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-/* Responsive padding */
-@media (max-width: 768px) {
-  .page-section {
-    padding: 30px 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-section {
-    padding: 20px 10px;
-  }
-}
-
-#how-we-help {
-  background-color: transparent; /* or #000 if you want solid black */
-  color: white;
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 40px auto;
-  text-align: center;
-}
-
-#how-we-help h2,
-#how-we-help h3 {
-  color: #ffb347;
-  margin-bottom: 20px;
-}
-#how-we-help .section-subheading {
-  color: white !important;
-  font-weight: normal !important;
-}
-
-#how-we-help p.intro-text {
-  color: white;
-  font-weight: normal;
-}
-
-#how-we-help p,
-#how-we-help span,
-#how-we-help a {
-  color: white !important;
-}
-
-#how-we-help a:hover {
-  color: #ffcc70;
-  text-decoration: underline;
-}
-
-.icon-image {
-  width: 132px;
-  height: 132px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #ffb347; /* Optional: adds a border like the circle icon */
+/* === Hero Section === */
+header {
+  height: 100vh;
+  /* Gradient added for smooth fade into the first orange wave */
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0) 60%, var(--orange) 100%),
+    url('img/cover.png') center/cover no-repeat;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.header-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 90%;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.intro-title {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 20px;
+  /* Expert 3-layer shadow: Tight Stroke, Orange Glow, Soft Depth */
+  text-shadow: 
+    0 0 5px rgba(0,0,0,1), 
+    0 0 20px rgba(255, 179, 71, 0.4),
+    0 10px 30px rgba(0,0,0,0.8);
+}
+
+.intro-title .accent-color {
+  color: var(--orange);
+  display: inline-block;
+  /* Enhanced depth for the orange text */
+  text-shadow: 
+    0 0 5px rgba(0,0,0,1), 
+    0 0 30px rgba(255, 179, 71, 0.6),
+    0 15px 40px rgba(0,0,0,0.9);
+}
+
+.intro-subtitle {
+  font-family: 'Sanchez', sans-serif;
+  font-size: clamp(0.9rem, 3vw, 1.8rem);
+  color: #000;
+  background-color: var(--orange);
+  font-weight: 900;
+  letter-spacing: 4px;
+  padding: 8px 25px;
+  display: inline-block;
+  text-transform: uppercase;
+  /* Clean, high-contrast look with no shadow */
+  text-shadow: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  margin-top: 10px;
+}
+
+.header-content.hidden { opacity: 0; }
+
+/* === Dynamic Wave Separators === */
+.wave-divider {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  margin-top: -1px; /* Prevent tiny gaps */
+  margin-bottom: -1px;
+}
+
+.wave-divider svg {
+  display: block;
+  width: calc(100% + 200.3px);
+  height: 80px; /* Taller for better flow */
+}
+
+/* The separator color depends on the section it belongs to (the current background) */
+.bg-black + .wave-divider .shape-fill { fill: var(--black); }
+.bg-orange + .wave-divider .shape-fill { fill: var(--orange); }
+
+/* Make sure the wave background matches the NEXT section */
+.wave-to-orange { background-color: var(--orange); }
+.wave-to-black { background-color: var(--black); }
+
+/* === Alternating Sections === */
+section {
+  padding: 100px 10%;
+  position: relative;
+  z-index: 10;
+}
+
+.bg-black { background-color: var(--black); color: #fff; }
+.bg-orange { background-color: var(--orange); color: #000; }
+
+.section-heading {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.bg-black .section-heading { color: var(--orange); }
+.bg-orange .section-heading { color: #000; }
+
+/* === Components === */
+
+/* Julia Image - Expert Refinement: Glowing Halo */
+.img-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.julia-img {
+  width: 220px;
+  height: 220px;
+  min-width: 220px;
+  min-height: 220px;
+  border-radius: 50% !important;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 30px rgba(255, 179, 71, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.julia-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 45px rgba(255, 179, 71, 0.6);
+}
+
+.bg-orange .julia-img { 
+  border-color: #000; 
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Gallery Filters - Spiced Up */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.gallery-filters button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-filters button:hover,
+.gallery-filters button.active {
+  background: var(--orange);
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 179, 71, 0.4);
+  transform: translateY(-2px);
+}
+
+.bg-orange .gallery-filters button {
+  border-color: #000;
+  color: #000;
+}
+
+.bg-orange .gallery-filters button:hover,
+.bg-orange .gallery-filters button.active {
+  background: #000;
+  color: var(--orange);
+}
+
+/* Why Counters - Center Fixed */
+.why-counters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.counter-item {
+  flex: 1 1 280px;
+  max-width: 350px;
+  padding: 40px 20px;
+  border: 1px solid #222;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+}
+
+.bg-orange .counter-item { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+
+.counter-number {
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--orange);
+  display: block;
+}
+
+.bg-orange .counter-number { color: #000; }
+
+.why-note { text-align: center; width: 100%; margin-top: 40px; }
+
+/* How We Help Cards */
+.icon-box {
+  background: rgba(255,255,255,0.03);
+  padding: 40px;
+  border-radius: 25px;
+  border: 1px solid #1a1a1a;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
 .icon-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 0.5s ease;
+}
+
+.icon-box:hover .icon-image img {
+  transform: scale(1.05);
+}
+
+.bg-orange .icon-box { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+
+/* Gallery - No Bleeding */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item-wrapper {
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 2px solid #222;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Buttons */
+.donate-button {
+  background: var(--orange) !important;
+  color: #000 !important;
+  padding: 15px 45px;
+  border-radius: 50px;
+  font-weight: 900;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.bg-orange .donate-button { background: #000 !important; color: var(--orange) !important; }
+
+/* Dutchie & QR */
+.dutchie-box {
+  border-left: 8px solid var(--orange);
+  background: rgba(255, 179, 71, 0.05);
+  padding: 30px;
+  text-align: left;
+  margin: 40px 0;
+  border-radius: 8px;
+}
+
+.bg-orange .dutchie-box { border-left-color: #000; background: rgba(0,0,0,0.05); }
+
+.qr-card {
+  background: #0a0a0a;
+  padding: 50px;
+  border-radius: 30px;
+  border: 1px solid #222;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.qr-code { width: 220px; border-radius: 15px; margin-top: 30px; border: 8px solid #fff; }
+
+/* Animations */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-up.active { opacity: 1; transform: translateY(0); }
+
+footer { padding: 60px 20px; text-align: center; border-top: 1px solid #111; }
+
+@media (max-width: 768px) {
+  section { padding: 80px 7%; }
 }

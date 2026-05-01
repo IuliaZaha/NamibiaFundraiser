@@ -7,416 +7,397 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
-  <!-- Font Awesome Free CDN -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-<!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="ico.ico" type="image/x-icon">
-<link rel="shortcut icon" href="ico.ico" type="image/x-icon">
-
+  <link rel="icon" href="ico.ico" type="image/x-icon">
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
 
 <!-- Navbar -->
 <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Be part of the story.</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarResponsive"
-      aria-controls="navbarResponsive"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon" style="color:white;">☰</span>
+    <a class="navbar-brand" href="#" data-i18n="hero_title">Be part of the story.</a>
+    
+    <div class="d-flex align-items-center order-lg-last ms-2">
+      <div class="dropdown lang-switcher">
+        <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffb347; font-size: 1.5rem;">
+          <i class="fas fa-globe"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="langDropdown">
+          <li><button class="dropdown-item" onclick="setLanguage('en')">English</button></li>
+          <li><button class="dropdown-item" onclick="setLanguage('nl')">Nederlands</button></li>
+          <li><button class="dropdown-item" onclick="setLanguage('ro')">Română</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#the-why">The Why</a></li>
-        <li class="nav-item"><a class="nav-link" href="#how-we-help">How We Help</a></li>
-        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tax-benefit">Tax Benefit</a></li>
-        <li class="nav-item"><a class="nav-link" href="#donate">Donate</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav_about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#the-why" data-i18n="nav_why">The Why</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how-we-help" data-i18n="nav_how">How We Help</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#donation-options" data-i18n="nav_donate_options">Donation Options</a></li>
+        <li class="nav-item"><a class="nav-link" href="#donate" data-i18n="nav_donate">Donate</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<h1 class="intro-title start-hidden">Be part of<br>the story.</h1>
+<header>
+  <div class="header-content text-center">
+    <h1 class="intro-title" data-i18n="hero_title">Be part of <span class="accent-color">the story.</span></h1>
+    <h2 class="intro-subtitle" data-i18n="hero_subtitle">BRING HOPE TO NAMIBIA</h2>
+  </div>
+</header>
 
-<header class="fade-in">
-    <div class="header-content">
-      <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-      <h2 class="intro-subtitle">BRING HOPE TO NAMIBIA</h2>
-      <!--<a href="#about" class="header-button">Learn More</a>-->
+<!-- Hero to Black: Asymmetrical Orange Wave (Flowy & Edge-to-Edge) -->
+<div class="wave-divider wave-to-black">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.38,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffb347"></path>
+    </svg>
+</div>
+
+<!-- We're Going Back Banner - bg-black -->
+<section id="going-back" class="going-back-banner fade-in bg-black">
+  <div class="container text-center reveal-up">
+    <h2 class="section-heading" data-i18n="banner_going_back" style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: #ffb347;">We're going back!</h2>
+    <p class="mb-4 fw-bold" style="font-size: 1.4rem;">Last year, we traveled to Namibia for 2 weeks. During that time, we ran educative workshops, Sunday School, and practical outreaches for all ages and more. No one left out. But the relationships we created, both with kids and adults need to be worked on and strengthened if we want to succeed. Because lasting change doesn't happen at once.</p>
+    <h4 class="mt-4 mb-5 fw-bold" style="color: #ffb347; font-size: 2rem;" data-i18n="banner_date">For this purpose, we are going back in February 2027!</h4>
+    
+    <div class="cta-box">
+      <h3 data-i18n="banner_cta_title" class="fw-bold" style="font-size: 1.8rem; color: #ffb347;">This is where YOU come in.</h3>
+      <a href="#donate" class="donate-button mt-4" data-i18n="nav_donate">Donate Now</a>
     </div>
-  </header>
-  
+  </div>
+</section>
 
-<!-- Main content -->
+<!-- Black to Orange: Smooth Black Wave -->
+<div class="wave-divider wave-to-orange">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#000000"></path>
+    </svg>
+</div>
+
 <div class="content">
-
-  <!-- About Section -->
-  <section id="about" class="about-section fade-in">
-    <h2 class="section-heading normal-case">About Our Trip</h2>
-    <img src="img/julia.jpg" alt="Julia – Volunteer" />
-    <p>Hi, I'm Julia!</p>
-    <p>
-      This autumn, I’m joining a volunteer team at a
-      <a href="https://ywamwindhoek.org/" target="_blank" class="header-button" style="color:#ffb347; background:none; padding:0;">YWAM base in Windhoek, Namibia</a>
-      to support local communities through education, creative workshops, and practical outreach for 2 weeks! .
-    </p>
-    <p>
-      It’s a privilege to be able to go, but real change doesn’t stop when we leave. That’s why we’re raising money — not just for the work we’ll do while we’re there, but to help sustain and strengthen the community long after our two-week trip ends. Your support helps empower communities through education and outreach.
-    </p>
+  <!-- About Section - bg-orange -->
+  <section id="about" class="about-section text-center bg-orange">
+    <div class="reveal-up">
+        <h2 class="section-heading" data-i18n="about_title">About Our Trip</h2>
+        <div class="img-container">
+            <img src="img/julia.jpg" alt="Julia – Volunteer" class="julia-img" />
+        </div>
+        <p class="mt-3 fw-bold" style="font-size: 2rem; color: #000;" data-i18n="about_intro">Hi, I'm Julia!</p>
+        <p class="mb-4 fw-bold" style="font-size: 1.3rem; color: #000;" data-i18n="about_text_1">
+          We already went to Namibia last year in October 2025, and together with your help (donations) we were able to support the projects there, bring clothes and devices and a money gift donation for the <a href="https://ywamwindhoek.org/" target="_blank" style="color: #000; text-decoration: underline; font-weight: 900;">YWAM base in Windhoek</a>!
+        </p>
+        <p class="fw-bold" style="font-size: 1.3rem; color: #000;" data-i18n="about_text_2">
+          However, we need to go back to strengthen those relationships and continue the work. We are going in <strong>February 2027</strong>. Will you be part of the story again?
+        </p>
+    </div>
   </section>
 
-
-  <!--The Why section-->
-  <section id="the-why" class="page-section">
-  <h2>The Why</h2>
-  <div class="why-counters">
-  <div class="counter-item">
-    <span class="counter-number"><span class="number" data-target="43">0</span><span class="percent-symbol">%</span></span>
-    <p>of Namibians live in multidimensional poverty*</p>
+  <!-- Orange to Black: Asymmetrical Orange Wave (Flowy & Edge-to-Edge) -->
+  <div class="wave-divider wave-to-black">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.38,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffb347"></path>
+    </svg>
   </div>
-  <div class="counter-item">
-    <span class="counter-number"><span class="number" data-target="51">0</span><span class="percent-symbol">%</span></span>
-    <p>of children are affected by multidimensional poverty*</p>
-  </div>
-  <div class="counter-item">
-    <span class="counter-number"><span class="number" data-target="46">0</span><span class="percent-symbol">%</span></span>
-    <p>of female-headed households live in poverty</p>
-  </div>
-</div>
 
-  <p class="why-note"><small>* Multidimensional poverty includes deprivations in income, healthcare, education, and living standards.
-<br>These statistics have been provided by UNICEF and OPHI.</em></small></p>
-</section>
-
-
-
-<!-- How We're Helping Section -->
-<section class="page-section" id="how-we-help">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="section-heading normal-case">How We're Helping the Community</h2>
-      <h3 class="section-subheading text-muted">These are the local initiatives we’re supporting while in Namibia.</h3>
+  <!-- The Why Section - bg-black -->
+  <section id="the-why" class="page-section bg-black">
+    <div class="container text-center">
+        <h2 class="section-heading reveal-up" data-i18n="why_title">The Why</h2>
+        <div class="why-counters">
+          <div class="counter-item reveal-up">
+            <span class="counter-number"><span class="number" data-target="43">0</span>%</span>
+            <p class="fw-bold" data-i18n="why_poverty_1">of Namibians live in multidimensional poverty*</p>
+          </div>
+          <div class="counter-item reveal-up">
+            <span class="counter-number"><span class="number" data-target="51">0</span>%</span>
+            <p class="fw-bold" data-i18n="why_poverty_2">of children are affected by multidimensional poverty*</p>
+          </div>
+          <div class="counter-item reveal-up">
+            <span class="counter-number"><span class="number" data-target="46">0</span>%</span>
+            <p class="fw-bold" data-i18n="why_poverty_3">of female-headed households live in poverty</p>
+          </div>
+        </div>
+        <div class="why-note mt-5 reveal-up">
+            <small data-i18n="why_note">* Multidimensional poverty includes deprivations in income, healthcare, education, and living standards. Provided by UNICEF and OPHI.</small>
+        </div>
     </div>
-    <div class="row text-center">
-      <div class="col-md-6 mb-5">
-        <!--<span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="fas fa-hands-helping fa-stack-1x fa-inverse"></i>
-        </span>-->
-        <div class="icon-image">
-  <img src="img/women2.png" alt="Project 20">
-</div>
-        <h4 class="my-3">Project 20</h4>
-        <p class="text-muted">A 6-month project that helps families break the cycle of poverty through goal setting, budgeting, spiritual support, and mentorship. Project 20 equips each family with the tools they need to live with dignity and independence.</p>
+  </section>
+
+  <!-- Black to Orange: Smooth Black Wave -->
+  <div class="wave-divider wave-to-orange">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#000000"></path>
+    </svg>
+  </div>
+
+  <!-- How We Help Section - bg-orange -->
+  <section id="how-we-help" class="page-section text-center bg-orange">
+    <h2 class="section-heading reveal-up" data-i18n="how_title">How We're Helping</h2>
+    <h3 class="h5 mb-5 fw-bold reveal-up" style="color: #000;" data-i18n="how_subtitle">Local projects we’re supporting while in Namibia.</h3>
+    
+    <div class="row g-4">
+      <div class="col-md-6 reveal-up">
+        <div class="icon-box">
+          <div class="icon-image"><img src="img/women2.png" alt="Project 20"></div>
+          <h4 class="fw-bold" data-i18n="how_project20_title">Project 20</h4>
+          <p class="fw-bold" data-i18n="how_project20_text">A 6-month project helping families break the cycle of poverty through goal setting and mentorship.</p>
+        </div>
       </div>
-      <div class="col-md-6 mb-5">
-        <div class="icon-image">
-  <img src="img/women1.png" alt="SuperWoman">
-</div>
-        <h4 class="my-3">SuperWoman</h4>
-        <p class="text-muted">A girls-only program in Okahandja Park, offering 13–18 year olds a safe space to grow emotionally, spiritually, and socially. Through mentorship, discussions, and creative activities, they gain confidence and tools to face everyday challenges.</p>
+      <div class="col-md-6 reveal-up">
+        <div class="icon-box">
+          <div class="icon-image"><img src="img/women1.png" alt="SuperWoman"></div>
+          <h4 class="fw-bold" data-i18n="how_superwoman_title">SuperWoman</h4>
+          <p class="fw-bold" data-i18n="how_superwoman_text">A girls-only program offering a safe space to grow emotionally, spiritually, and socially.</p>
+        </div>
       </div>
-      <div class="col-md-6 mb-5">
-        <div class="icon-image">
-  <img src="img/namibia-children3.png" alt="Kids Club">
-</div>
-        <h4 class="my-3">Kids Club</h4>
-        <p class="text-muted">Every Thursday, over 400 children come together for songs, stories, games, and encouragement. Kids Club is pure joy — a chance to be seen, loved, and spiritually uplifted in a safe community space.</p>
+      <div class="col-md-6 reveal-up">
+        <div class="icon-box">
+          <div class="icon-image"><img src="img/namibia-children3.png" alt="Kids Club"></div>
+          <h4 class="fw-bold" data-i18n="how_kidsclub_title">Kids Club</h4>
+          <p class="fw-bold" data-i18n="how_kidsclub_text">A weekly safe space for over 400 children to learn, play, and be spiritually uplifted.</p>
+        </div>
       </div>
-      <div class="col-md-6 mb-5">
-        <div class="icon-image">
-  <img src="img/youth2.png" alt="Youth Club">
-</div>
-        <h4 class="my-3">Youth Club</h4>
-        <p class="text-muted">Focused on teens and young adults, Youth Club offers deeper fellowship and purpose-driven outreach. Through honest conversations, shared meals, and spiritual input, it empowers young people to grow into leaders in their own communities.</p>
+      <div class="col-md-6 reveal-up">
+        <div class="icon-box">
+          <div class="icon-image"><img src="img/youth2.png" alt="Youth Club"></div>
+          <h4 class="fw-bold" data-i18n="how_youthclub_title">Youth Club</h4>
+          <p class="fw-bold" data-i18n="how_youthclub_text">Focused on teens and young adults, empowering them to become leaders in their communities.</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Orange to Black: Asymmetrical Orange Wave (Flowy & Edge-to-Edge) -->
+  <div class="wave-divider wave-to-black">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.38,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffb347"></path>
+    </svg>
   </div>
-</section>
 
-
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="project-gallery fade-in">
-    <h2>Our Project Gallery</h2>
-    <p>See more of the beautiful moments we've shared with the communities in Namibia in previous years.</p>
-    <div class="gallery-filters">
-      <button class="active" onclick="filterGallery('all')">All</button>
-      <button onclick="filterGallery('kids')">Kids</button>
-      <button onclick="filterGallery('women')">Women Workshop</button>
-      <button onclick="filterGallery('youth')">Youth</button>
-      <button onclick="filterGallery('garden')">Garden Project</button>
+  <!-- Gallery Section - bg-black -->
+  <section id="gallery" class="project-gallery text-center bg-black">
+    <div class="reveal-up">
+        <h2 class="section-heading" data-i18n="gallery_title">Our Project Gallery</h2>
+        <p class="mb-5 fw-bold" style="color: #ccc;" data-i18n="gallery_text">Moments we've shared with the communities in previous years.</p>
+        <div class="gallery-filters mb-5">
+          <button class="active" onclick="filterGallery('all')" data-i18n="gallery_filter_all">All</button>
+          <button onclick="filterGallery('kids')" data-i18n="gallery_filter_kids">Kids</button>
+          <button onclick="filterGallery('women')" data-i18n="gallery_filter_women">Women</button>
+          <button onclick="filterGallery('youth')" data-i18n="gallery_filter_youth">Youth</button>
+        </div>
     </div>
     <div class="gallery-grid">
-      <img src="img/namibia-children.png" alt="Kids project" class="gallery-item kids" />
-      <img src="img/namibia-children1.png" alt="More with children" class="gallery-item kids" />
-      <img src="img/namibia-children2.png" alt="Kids project" class="gallery-item kids" />
-      <img src="img/namibia-children3.png" alt="More with children" class="gallery-item kids" />
-      <img src="img/women1.png" alt="Women project" class="gallery-item women" />
-      <img src="img/women2.png" alt="Women project" class="gallery-item women" />
-      <img src="img/women3.png" alt="Workshop with women" class="gallery-item women" />
-      <img src="img/women4.png" alt="Workshop with women" class="gallery-item women" />
-      <img src="img/youth.png" alt="Youth project" class="gallery-item youth" />
-      <img src="img/youth2.png" alt="Youth project" class="gallery-item youth" />
-      <img src="img/build.png" alt="Garden project" class="gallery-item garden" />
-      <img src="img/build1.png" alt="Garden project" class="gallery-item garden" />
+      <div class="gallery-item-wrapper reveal-up"><img src="img/namibia-children.png" class="gallery-item kids" alt="Kids" /></div>
+      <div class="gallery-item-wrapper reveal-up"><img src="img/namibia-children3.png" class="gallery-item kids" alt="Kids" /></div>
+      <div class="gallery-item-wrapper reveal-up"><img src="img/women1.png" class="gallery-item women" alt="Women" /></div>
+      <div class="gallery-item-wrapper reveal-up"><img src="img/women2.png" class="gallery-item women" alt="Women" /></div>
+      <div class="gallery-item-wrapper reveal-up"><img src="img/youth.png" class="gallery-item youth" alt="Youth" /></div>
+      <div class="gallery-item-wrapper reveal-up"><img src="img/youth2.png" class="gallery-item youth" alt="Youth" /></div>
     </div>
   </section>
 
-  <!-- Tax Benefit Section -->
-  <section id="tax-benefit" class="tax-benefit fade-in">
-    <h2>Are You a Dutchie?</h2>
-    <p>
-      Good news! If you live in the Netherlands, your donation is <strong>tax-deductible</strong> through our trusted partner Motion church based in Utrecht.
-    </p>
-    <p>
-      That means you can claim your donation in your Belastingaangifte (tax return) and potentially receive money back.
-    </p>
+  <!-- Black to Orange: Smooth Black Wave -->
+  <div class="wave-divider wave-to-orange">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#000000"></path>
+    </svg>
+  </div>
+
+  <!-- Donation Options - bg-orange -->
+  <section id="donation-options" class="page-section text-center bg-orange">
+    <div class="reveal-up">
+        <h2 class="section-heading" data-i18n="donate_options_title">Donation Options</h2>
+        <p class="mb-5 fw-bold" data-i18n="donate_options_text">We accept more than just money! Your support matters.</p>
+    </div>
+    
+    <div class="row g-4 mb-5">
+      <div class="col-md-3 col-sm-6 reveal-up">
+        <div class="icon-box">
+          <i class="fas fa-tshirt fa-3x mb-3"></i>
+          <h4 class="fw-bold" data-i18n="donate_clothes_title">Clothes</h4>
+          <p class="small fw-bold" data-i18n="donate_clothes_text">Gently used or new clothes for all ages.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 reveal-up">
+        <div class="icon-box">
+          <i class="fas fa-laptop-code fa-3x mb-3"></i>
+          <h4 class="fw-bold" data-i18n="donate_gadgets_title">Gadgets</h4>
+          <p class="small fw-bold" data-i18n="donate_gadgets_text">Functional electronics for education.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 reveal-up">
+        <div class="icon-box">
+          <i class="fas fa-puzzle-piece fa-3x mb-3"></i>
+          <h4 class="fw-bold" data-i18n="donate_toys_title">Toys</h4>
+          <p class="small fw-bold" data-i18n="donate_toys_text">Toys to bring joy and support development.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 reveal-up">
+        <div class="icon-box">
+          <i class="fas fa-hand-holding-heart fa-3x mb-3"></i>
+          <h4 class="fw-bold" data-i18n="donate_money_title">Money</h4>
+          <p class="small fw-bold" data-i18n="donate_money_text">Financial contributions go directly to the projects.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#donate" class="donate-button reveal-up" data-i18n="nav_donate">Donate Now</a>
   </section>
 
-  <!-- Donate Section -->
-<section id="donate" class="qr-card fade-in">
-    <h2 style="margin-bottom: 1.5rem;">How to Donate</h2>
-  
-    <p style="font-style: italic; margin-bottom: 25px;">
-      We truly appreciate your support — every little bit helps us make a big difference in Namibia. So, thank you! 💛
-    </p>
-    <p class= highlighted-note style="margin-top: 20px; text-align: center;">
-        <strong>Please include "JULIA" in the payment description</strong> so your gift can be properly linked to this volunteer trip.
+  <!-- Orange to Black: Asymmetrical Orange Wave (Flowy & Edge-to-Edge) -->
+  <div class="wave-divider wave-to-black">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.38,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffb347"></path>
+    </svg>
+  </div>
+
+  <!-- Donate Section - bg-black -->
+  <section id="donate" class="fade-in text-center bg-black">
+    <div class="qr-card reveal-up">
+      <h2 class="section-heading" data-i18n="donate_title">How to Donate</h2>
+      <p style="font-style: italic; color: #ffb347; font-size: 1.3rem; font-weight: 900;" data-i18n="donate_thanks_italic">Every little bit helps us make a big difference. Thank you! 💛</p>
+      
+      <div class="dutchie-box" style="border-left-color: #ffb347; background: rgba(255, 179, 71, 0.05);">
+          <h4 data-i18n="tax_title" style="color: #ffb347; font-weight: 900; font-size: 1.5rem;">Are You a Dutchie?</h4>
+          <p data-i18n="tax_text_1" style="font-size: 1.1rem; color: #fff; font-weight: 700;">Good news! If you live in the Netherlands, your donation is <strong>tax-deductible</strong> through our trusted partner Motion church based in Utrecht.</p>
+          <p data-i18n="tax_text_2" style="font-size: 1.1rem; margin-bottom: 0; color: #fff; font-weight: 700;">That means you can claim your donation in your Belastingaangifte (tax return) and potentially receive money back.</p>
+      </div>
+
+      <p class="highlighted-note" data-i18n="donate_julia_note" style="border-color: #ffb347; color: #fff; font-weight: 900; font-size: 1.2rem;">
+        <strong>Please include "JULIA" in the payment description</strong>
       </p>
-  
-    <a href="https://payment-links.mollie.com/payment/JcErEj2t4WMbwjGekFtFE" target="_blank" class="donate-button">Donate Here</a>
-  
-    <p style="margin-top: 30px; font-weight: 500;">
-      OR you can scan the QR code below to donate:
-    </p>
-  
-    <img src="img/qr.png" alt="Donate QR Code" class="qr-code" />
-  
-  </section>
-  
-  <section id="thank-you" class="fade-in">
-    <p>💛 Thank you so much for helping or donating — you’re amazing and truly making a difference!</p>
-  </section>
-  
 
+      <a href="https://payment-links.mollie.com/payment/JcErEj2t4WMbwjGekFtFE" target="_blank" class="donate-button mt-4" data-i18n="donate_here_btn">Donate Here</a>
+      
+      <p class="mt-5 fw-bold" style="font-size: 1.3rem;">OR scan the QR code below:</p>
+      <img src="img/qr.png" alt="QR" class="qr-code mx-auto d-block" />
+    </div>
+  </section>
 </div>
 
-<!-- Footer -->
+<section id="thank-you" class="text-center bg-black">
+  <div class="container pb-5">
+    <p class="h4" style="font-weight: 900;" data-i18n="thank_you_final">💛 Thank you so much for helping or donating — you’re amazing and truly making a difference!</p>
+  </div>
+</section>
+
 <footer>
-  <p>With love and gratitude, Julia Zaha</p>
-  <p>
-    For any questions or extra information please contact me at:
-    <a href="#" id="email-link">[Click to email]</a>
-  </p>
+  <div class="container">
+    <p class="mb-2" style="font-weight: 800;" data-i18n="footer_gratitude">With love and gratitude, Julia Zaha</p>
+    <p class="fw-bold"><span data-i18n="footer_contact">Contact:</span> <a href="mailto:julia.tripnamibia@gmail.com">julia.tripnamibia@gmail.com</a></p>
+  </div>
 </footer>
 
-<!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Navbar shrink script -->
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const navbarShrink = () => {
-      const nav = document.getElementById('mainNav');
-      if (window.scrollY === 0) {
-        nav.classList.remove('navbar-shrink');
-      } else {
-        nav.classList.add('navbar-shrink');
-      }
-    };
-    navbarShrink();
-    document.addEventListener('scroll', navbarShrink);
+  let translations = {};
+  let currentLang = localStorage.getItem('preferredLang') || 'en';
 
-    // Collapse responsive navbar on nav-link click
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navLinks = document.querySelectorAll('#navbarResponsive .nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.getComputedStyle(navbarToggler).display !== 'none') {
-          navbarToggler.click();
-        }
-      });
-    });
-
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        appearOnScroll.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-
-    // Gallery filter function
-    window.filterGallery = function(filter) {
-      const items = document.querySelectorAll('.gallery-item');
-      const buttons = document.querySelectorAll('.gallery-filters button');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.gallery-filters button[onclick="filterGallery('${filter}')"]`).classList.add('active');
-      items.forEach(item => {
-        if (filter === 'all' || item.classList.contains(filter)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    };
-
-    // Initialize gallery filter to 'all'
-    filterGallery('all');
-
-    // Dynamic email link to avoid spam bots
-    const email = ['julia', 'tripnamibia', 'at', 'gmail', 'dot', 'com'];
-    const emailLink = document.getElementById('email-link');
-    emailLink.href = 'mailto:' + email[0] + '.' + email[1] + '@' + email[3] + '.com';
-    emailLink.textContent = 'julia.tripnamibia@gmail.com';
-  });
-</script>
-
-<script>
-  const link = document.querySelector("link[rel~='icon']");
-  if (link) link.href = "/favicon.ico?v=" + new Date().getTime();
-</script>
-
-<script>
-  window.addEventListener('scroll', function () {
-    const nav = document.getElementById('mainNav');
-    const about = document.getElementById('about');
-    const aboutOffset = about.offsetTop;
-
-    if (window.scrollY >= aboutOffset - 80) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const title = document.querySelector('.intro-title');
-    title.classList.remove('start-hidden'); // remove after initial load
-
-    const hideThreshold = 100;
-    const shrinkThreshold = 50;
-
-    function updateTitleState() {
-      if (window.scrollY > hideThreshold) {
-        title.classList.add('hidden');
-      } else {
-        title.classList.remove('hidden');
-      }
-
-      if (window.scrollY > shrinkThreshold) {
-        title.classList.add('shrunk');
-      } else {
-        title.classList.remove('shrunk');
-      }
-    }
-
-    updateTitleState();
-    window.addEventListener('scroll', updateTitleState);
-  });
-</script>
-
-  <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    // Your existing DOMContentLoaded code here...
-  });
-
-  // New scroll listener to fade out header title
-  window.addEventListener('scroll', () => {
-    const headerContent = document.querySelector('.header-content');
-    const scrollThreshold = 100; // adjust if needed
-
-    if (window.scrollY > scrollThreshold) {
-      headerContent.classList.add('hidden');
-    } else {
-      headerContent.classList.remove('hidden');
-    }
-  });
-
-</script>
-
-<!-- Number count-up animation on scroll into view-->
- <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const counters = document.querySelectorAll('.number');
-  let counted = false;
-
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top <= (window.innerHeight || document.documentElement.clientHeight);
+  async function loadTranslations() {
+    try {
+      const response = await fetch('translations.json');
+      translations = await response.json();
+      applyTranslations();
+    } catch (e) { console.error('Translations failed', e); }
   }
 
-  function runCounters() {
-    if (counted) return;
-    counters.forEach(counter => {
-      if (isInViewport(counter)) {
-        counted = true;
-        counters.forEach(c => animateCount(c));
-      }
-    });
-  }
-
-  function animateCount(el) {
-    const target = +el.getAttribute('data-target');
-    let count = 0;
-    const increment = Math.ceil(target / 100);
-    const duration = 1500; // ms
-    const stepTime = Math.floor(duration / (target / increment));
+  function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    applyTranslations();
+    localStorage.setItem('preferredLang', lang);
     
-    const timer = setInterval(() => {
-      count += increment;
-      if (count > target) count = target;
-      el.textContent = count;
-      if (count === target) clearInterval(timer);
-    }, stepTime);
+    const dropdownBtn = document.getElementById('langDropdown');
+    const dropdown = bootstrap.Dropdown.getInstance(dropdownBtn);
+    if (dropdown) dropdown.hide();
   }
 
-  window.addEventListener('scroll', runCounters);
-  runCounters();  // Run once on load in case already visible
-});
-</script>
+  function applyTranslations() {
+    if (!translations[currentLang]) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[currentLang][key]) {
+          if (translations[currentLang][key].includes('<')) {
+              el.innerHTML = translations[currentLang][key];
+          } else {
+              el.textContent = translations[currentLang][key];
+          }
+      }
+    });
+  }
 
-<script>const navbarHeight = 325; // adjust as needed
+  window.addEventListener('DOMContentLoaded', () => {
+    loadTranslations();
+    
+    const mainNav = document.getElementById('mainNav');
+    const headerContent = document.querySelector('.header-content');
+    
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      if (scrollPos > 50) {
+        mainNav.classList.add('navbar-shrink');
+      } else {
+        mainNav.classList.remove('navbar-shrink');
+      }
+      
+      if (scrollPos > 100) {
+        headerContent.classList.add('hidden');
+      } else {
+        headerContent.classList.remove('hidden');
+      }
+    });
 
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const targetID = link.getAttribute('href').slice(1);
-    const targetElem = document.getElementById(targetID);
-    if (targetElem) {
-      e.preventDefault();
+    // Expert Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+    
+    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
 
-      const yOffset = window.innerWidth < 768 ? navbarHeight : 70;
-      const y = targetElem.getBoundingClientRect().top + window.pageYOffset - yOffset;
+    // Gallery filter
+    window.filterGallery = (f) => {
+      document.querySelectorAll('.gallery-item-wrapper').forEach(i => {
+        const img = i.querySelector('.gallery-item');
+        i.style.display = (f === 'all' || img.classList.contains(f)) ? 'block' : 'none';
+      });
+      document.querySelectorAll('.gallery-filters button').forEach(b => {
+        b.classList.remove('active');
+        if(b.getAttribute('onclick').includes(`'${f}'`)) b.classList.add('active');
+      });
+    };
 
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    // Number counters
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = +el.getAttribute('data-target');
+          let count = 0;
+          const timer = setInterval(() => {
+            count += Math.ceil(target/50);
+            if (count >= target) { el.innerText = target; clearInterval(timer); }
+            else el.innerText = count;
+          }, 30);
+          counterObserver.unobserve(el);
+        }
+      });
+    });
+    document.querySelectorAll('.number').forEach(n => counterObserver.observe(n));
   });
-});
 </script>
-
-
 </body>
 </html>
