@@ -44,6 +44,7 @@
         <li class="nav-item"><a class="nav-link" href="#the-why" data-i18n="nav_why">The Why</a></li>
         <li class="nav-item"><a class="nav-link" href="#how-we-help" data-i18n="nav_how">How We Help</a></li>
         <li class="nav-item"><a class="nav-link" href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newsModal" data-i18n="nav_news">News</a></li>
         <li class="nav-item"><a class="nav-link" href="#donation-options" data-i18n="nav_donate_options">Donation Options</a></li>
         <li class="nav-item"><a class="nav-link" href="#donate" data-i18n="nav_donate">Donate</a></li>
       </ul>
@@ -322,6 +323,72 @@
   <span data-i18n="fab_donate">DONATE</span>
 </a>
 
+<!-- News Journal Floating Trigger -->
+<div class="news-trigger" data-bs-toggle="modal" data-bs-target="#newsModal">
+  <div class="pulse-dot"></div>
+  <div class="trigger-text">
+    <b data-i18n="news_trigger_title">Live App Update</b>
+    <span data-i18n="news_trigger_subtitle">Development in progress</span>
+  </div>
+</div>
+
+<!-- News Journal Modal -->
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newsModalLabel" data-i18n="news_modal_title">DEVELOPMENT LOG</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="news-progress-box">
+          <div class="news-progress-label">
+            <span data-i18n="news_progress_label">Build Progress</span>
+            <span>65%</span>
+          </div>
+          <div class="news-progress-bar">
+            <div class="news-progress-fill"></div>
+          </div>
+        </div>
+        
+        <div class="news-journal-content">
+          <!-- Entry 1: Login -->
+          <div class="news-entry">
+            <div class="news-phone-frame">
+              <img src="img/appLogin.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="App Login Screen">
+            </div>
+            <h4 class="news-entry-title" data-i18n="news_entry_1_title">Secure Access</h4>
+            <p class="news-entry-text" data-i18n="news_entry_1_text">I've implemented a secure login system for the YWAM base leaders. This ensures that sensitive community data and project records are protected and only accessible to authorized personnel.</p>
+          </div>
+
+          <!-- Entry 2: Calendar -->
+          <div class="news-entry">
+            <div class="news-phone-frame">
+              <img src="img/appCalendar.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="App Calendar Screen">
+            </div>
+            <h4 class="news-entry-title" data-i18n="news_entry_2_title">Scheduling Hope</h4>
+            <p class="news-entry-text" data-i18n="news_entry_2_text">The core of the app is a powerful calendar. It allows the team to organize weekly outreaches, kids' clubs, and workshops, ensuring no community is left behind due to scheduling conflicts.</p>
+          </div>
+
+          <!-- Entry 3: Data Entry -->
+          <div class="news-entry">
+            <div class="news-phone-frame">
+              <img src="img/appNewClass1.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="App Data Entry Screen">
+            </div>
+            <h4 class="news-entry-title" data-i18n="news_entry_3_title">Data for Impact</h4>
+            <p class="news-entry-text" data-i18n="news_entry_3_text">By digitizing class registrations and community entries, we can now track the growth of each project. This data helps us show donors exactly how their support is changing lives.</p>
+          </div>
+        </div>
+
+        <div class="news-cta-box">
+          <a href="#donate" class="donate-button" data-bs-dismiss="modal" onclick="smoothScrollToDonate()" data-i18n="news_cta_btn">Support the Deployment</a>
+          <p class="small mt-3 mb-0" style="color: #666;" data-i18n="news_cta_note">Your donation helps fund the server and hardware costs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     <p class="mb-2" style="font-weight: 800;" data-i18n="footer_gratitude">With love and gratitude, Julia Zaha</p>
@@ -437,6 +504,27 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.number').forEach(n => counterObserver.observe(n));
   });
+
+  function smoothScrollToDonate() {
+    setTimeout(() => {
+      const donateSection = document.getElementById('donate');
+      if (donateSection) {
+        window.scrollTo({
+          top: donateSection.offsetTop - 72,
+          behavior: 'smooth'
+        });
+        
+        // Add a temporary glow to the QR card to draw attention
+        const qrCard = donateSection.querySelector('.qr-card');
+        if (qrCard) {
+          qrCard.style.boxShadow = '0 0 50px rgba(255, 179, 71, 0.8)';
+          setTimeout(() => {
+            qrCard.style.boxShadow = '';
+          }, 3000);
+        }
+      }
+    }, 350); // Small delay to allow modal to close
+  }
 </script>
 </body>
 </html>
