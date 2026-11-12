@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Be part of the story.</title>
+  <title>Be part of the story. (prototype)</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -11,6 +11,117 @@
   <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="ico.ico" type="image/x-icon">
+<style>
+/* ===== App section: the why, the progress, the new UI ===== */
+.ap{background:#000;padding:80px 0 64px;border-top:1px solid #1f1f1f;color:#fff}
+.ap-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.ap a:focus-visible,.ap summary:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ap-badge{display:inline-block;background:#ffb347;color:#000;font-weight:800;font-size:.8rem;padding:6px 12px;border-radius:99px}
+.ap-new{background:#fff;margin-left:6px}
+.ap-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.ap-read{color:#bdbdbd;font-size:.9rem}
+
+/* WHY */
+.ap-hero{font-weight:900;font-size:clamp(2.1rem,7vw,4.2rem);line-height:1.04;margin:0 0 18px;color:#fff;letter-spacing:-.01em}
+.ap-hero span{display:block;color:#ffb347}
+.ap-lead{color:#e2e2e2;font-size:1.15rem;line-height:1.55;max-width:46rem;margin:0 0 34px}
+.ap-lead b{color:#fff}
+.ap-vs{display:grid;gap:14px;margin:0 0 18px}
+.ap-side{border-radius:22px;padding:22px 20px}
+.ap-side h3{font-size:1.35rem;font-weight:900;margin:0 0 4px}
+.ap-side p{margin:0 0 14px;font-size:.95rem}
+.ap-side ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ap-side li{display:flex;gap:12px;align-items:center;font-weight:700;font-size:1.05rem;line-height:1.3}
+.ap-side li i{flex:none;width:34px;text-align:center;font-size:1.15rem}
+.ap-before{background:#141414;border:2px dashed #4a4a4a;color:#cfcfcf}
+.ap-before h3{color:#bdbdbd}
+.ap-before li i{color:#8a8a8a}
+.ap-after{background:#ffb347;color:#000;border:2px solid #ffb347;box-shadow:0 0 0 6px rgba(255,179,71,.14)}
+.ap-after p{color:#2b1c00}
+.ap-after li i{color:#000}
+.ap-proof{color:#d6d6d6;font-size:1rem;margin:0 0 56px}
+.ap-proof b{color:#ffb347}
+
+/* HOW YOUR GIFT TRAVELS */
+.ap-h3{font-weight:900;font-size:clamp(1.5rem,4.5vw,2.2rem);color:#ffb347;margin:0 0 6px;line-height:1.15}
+.ap-h3-sub{color:#cfcfcf;margin:0 0 22px;font-size:1.05rem}
+.ap-flow{display:grid;gap:12px;margin:0 0 56px;padding:0;list-style:none}
+.ap-flow li{background:#141414;border:1px solid #2c2c2c;border-radius:18px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.ap-flow .ap-n{flex:none;width:38px;height:38px;border-radius:50%;background:#ffb347;color:#000;font-weight:900;display:flex;align-items:center;justify-content:center}
+.ap-flow b{display:block;color:#fff;font-size:1.1rem;margin-bottom:3px}
+.ap-flow span{color:#cfcfcf;font-size:.98rem;line-height:1.45}
+
+/* PROGRESS */
+.ap-prog{background:#141414;border:1px solid #2c2c2c;border-radius:20px;padding:18px;margin:0 0 56px}
+.ap-prog-head{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;color:#fff}
+.ap-prog-head small{font-weight:400;color:#bdbdbd;font-size:.8rem}
+.ap-pct{font-size:2.4rem;font-weight:900;line-height:1;color:#ffb347}
+.ap-bar{position:relative;height:14px;background:#2a2a2a;border-radius:99px;margin:12px 0 40px}
+.ap-bar i{display:block;height:100%;background:#ffb347;border-radius:99px}
+.ap-bar u{position:absolute;top:-5px;width:3px;height:24px;background:#fff;border-radius:2px;text-decoration:none}
+.ap-last{position:absolute;top:24px;transform:translateX(-50%);font-size:.78rem;color:#d6d6d6;white-space:nowrap}
+.ap-stages{display:flex;flex-direction:column;gap:12px}
+.ap-stage{display:flex;align-items:center;gap:14px;background:#0d0d0d;border:1px solid #2c2c2c;border-radius:14px;padding:14px 16px}
+.ap-dot{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
+.ap-stage b{display:block;font-size:1.05rem;color:#fff}
+.ap-state{font-size:.85rem;color:#bdbdbd}
+.ap-stage.done .ap-dot{background:#ffb347;color:#000}
+.ap-stage.now{border-color:#ffb347}
+.ap-stage.now .ap-dot{border:3px solid #ffb347;color:#ffb347;animation:apPulse 1.8s infinite}
+.ap-stage.next .ap-dot{border:2px dashed #8a8a8a;color:#bdbdbd}
+@keyframes apPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,179,71,.5)}50%{box-shadow:0 0 0 9px rgba(255,179,71,0)}}
+
+/* SEE IT */
+.ap-hint{display:none;color:#ffb347;font-weight:700;font-size:.85rem;margin-bottom:8px}
+.ap-cards{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;-webkit-overflow-scrolling:touch}
+.ap-card{flex:0 0 78%;scroll-snap-align:center;background:#141414;border:1px solid #2c2c2c;border-radius:20px;padding:18px 16px 20px;text-align:center}
+.ap-card video,.ap-card img{display:block;width:100%;max-width:240px;height:auto;margin:0 auto 14px;border:3px solid #3a3a3a;border-radius:22px}
+.ap-card video{aspect-ratio:480/938;background:#fffaf0}
+.ap-card h3{font-size:1.1rem;font-weight:800;color:#fff;margin:0 0 4px}
+.ap-card p{font-size:.95rem;color:#cfcfcf;margin:0;line-height:1.4}
+.ap-card.old img{aspect-ratio:9/19;object-fit:cover;object-position:top;filter:saturate(.75);opacity:.92}
+
+/* WHAT'S NEW */
+.ap-tiles{display:grid;gap:12px;margin:34px 0 56px}
+.ap-tile{display:flex;align-items:center;gap:14px;background:#141414;border-radius:14px;padding:14px 16px}
+.ap-tile i{flex:none;width:46px;height:46px;border-radius:12px;background:#ffb347;color:#000;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.ap-tile b{display:block;color:#fff;font-size:1.05rem}
+.ap-tile span{color:#bdbdbd;font-size:.92rem}
+
+/* CTA */
+.ap-cta{border:2px solid #ffb347;border-radius:22px;padding:28px 20px;text-align:center;background:rgba(255,179,71,.06)}
+.ap-cta h3{color:#ffb347;font-weight:900;font-size:clamp(1.5rem,5vw,2.3rem);margin:0 0 8px;line-height:1.15}
+.ap-cta p{color:#eee;margin:0 auto 18px;max-width:34rem;font-size:1.05rem}
+.ap-cta small{display:block;color:#cfcfcf;margin-top:14px}
+
+/* ARCHIVE */
+.ap-archive{margin-top:34px}
+.ap-archive summary{cursor:pointer;list-style:none;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#141414;border:1px solid #2c2c2c;border-radius:14px;padding:12px 16px;color:#fff;font-weight:700}
+.ap-archive summary::-webkit-details-marker{display:none}
+.ap-archive[open] summary{border-color:#ffb347}
+.ap-sum-main{display:flex;align-items:center;gap:10px}
+.ap-sum-r{color:#bdbdbd;font-weight:400;font-size:.92rem}
+.ap-arrow{display:inline-block;transition:transform .2s;color:#ffb347}
+.ap-archive[open] .ap-arrow{transform:rotate(90deg)}
+.ap-old-badge{background:#3a3a3a;color:#fff}
+.ap-old-note{color:#cfcfcf;margin:14px 2px}
+.new-dot{background:#ffb347;color:#000;font-size:.62rem;font-weight:900;padding:2px 6px;border-radius:99px;vertical-align:middle}
+
+@media(min-width:900px){
+ .ap-vs{grid-template-columns:1fr 1.15fr;align-items:stretch}
+ .ap-side{padding:30px 28px}
+ .ap-flow{grid-template-columns:repeat(3,1fr)}
+ .ap-flow li{flex-direction:column;position:relative}
+ .ap-flow li:not(:last-child)::after{content:"\f061";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;right:-17px;top:50%;transform:translateY(-50%);color:#ffb347;z-index:2;background:#000;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem}
+ .ap-stages{flex-direction:row}.ap-stage{flex:1}
+ .ap-cards{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible}
+ .ap-cards.three{grid-template-columns:repeat(3,1fr)}
+ .ap-card{flex:none}
+ .ap-tiles{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:899px){.ap-hint{display:block}}
+@media(prefers-reduced-motion:reduce){.ap-stage.now .ap-dot{animation:none}}
+</style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
 
@@ -44,7 +155,7 @@
         <li class="nav-item"><a class="nav-link" href="#the-why" data-i18n="nav_why">The Why</a></li>
         <li class="nav-item"><a class="nav-link" href="#how-we-help" data-i18n="nav_how">How We Help</a></li>
         <li class="nav-item"><a class="nav-link" href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newsModal" data-i18n="nav_news">News</a></li>
+        <li class="nav-item"><a class="nav-link" href="#app-progress"><span data-i18n="nav_app">The App</span> <span class="new-dot" data-i18n="ap_new_tag">NEW</span></a></li>
         <li class="nav-item"><a class="nav-link" href="#donation-options" data-i18n="nav_donate_options">Donation Options</a></li>
         <li class="nav-item"><a class="nav-link" href="#donate" data-i18n="nav_donate">Donate</a></li>
       </ul>
@@ -114,6 +225,85 @@
         <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.38,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffb347"></path>
     </svg>
   </div>
+
+  <!-- App Section (prototype): 1 WHY -> 2 how your gift travels -> 3 progress -> 4 see it -> 5 donate -->
+  <section id="app-progress" class="ap">
+    <div class="ap-wrap">
+      <div class="ap-top"><div><span class="ap-badge" data-i18n="ap_update_badge">Update 2 · Nov 2026</span><span class="ap-badge ap-new" data-i18n="ap_new_ui">New UI</span></div><span class="ap-read" data-i18n="ap_read">2-minute read, 30 seconds if you skim</span></div>
+
+      <h2 class="ap-hero" data-i18n="ap_hero">Every minute on paperwork is a minute not spent with a child.<span>I'm building the app to give those minutes back.</span></h2>
+      <p class="ap-lead" data-i18n="ap_lead">Kids Club alone welcomes <b>400+ children every week</b>. The leaders who run it are buried in paper attendance sheets and messy spreadsheets and losing precious time. I can't be at the base every week, but I can build something that lifts the admin off their shoulders. <b>That is why this app exists.</b></p>
+
+      <div class="ap-vs">
+        <div class="ap-side ap-before">
+          <h3 data-i18n="ap_today">Today</h3>
+          <p data-i18n="ap_today_sub">Admin eats the time meant for the community.</p>
+          <ul>
+            <li><i class="fas fa-file-lines" aria-hidden="true"></i><span data-i18n="ap_before_1">Paper attendance sheets</span></li>
+            <li><i class="fas fa-table-cells" aria-hidden="true"></i><span data-i18n="ap_before_2">Long queues of kids at school</span></li>
+            <li><i class="fas fa-hourglass-half" aria-hidden="true"></i><span data-i18n="ap_before_3">Slow, repetitive admin after every class</span></li>
+          </ul>
+        </div>
+        <div class="ap-side ap-after">
+          <h3 data-i18n="ap_with">With the app</h3>
+          <p data-i18n="ap_with_sub">Leaders spend their energy on people, not forms.</p>
+          <ul>
+            <li><i class="fas fa-hand-pointer" aria-hidden="true"></i><span data-i18n="ap_after_1">One tap to check a child in (either via button or QR code)</span></li>
+            <li><i class="fas fa-wifi" aria-hidden="true"></i><span data-i18n="ap_after_2">Works offline, syncs later</span></li>
+            <li><i class="fas fa-file-excel" aria-hidden="true"></i><span data-i18n="ap_after_3">Reports exported in .csv</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="ap-h3" data-i18n="ap_gift_title">How your gift travels</h3>
+      <p class="ap-h3-sub" data-i18n="ap_gift_sub">Why building an app is also how I raise funds for the trip.</p>
+      <ol class="ap-flow">
+        <li><span class="ap-n">1</span><div><b data-i18n="ap_gift_1_t">You give</b><span data-i18n="ap_gift_1_d">Your donation funds the February 2027 trip and the hardware the app needs to run at the base.</span></div></li>
+        <li><span class="ap-n">2</span><div><b data-i18n="ap_gift_2_t">I build and deliver</b><span data-i18n="ap_gift_2_d">I build the app myself, and I carry it to Windhoek in person. Your donation doesn't go in my pocket.</span></div></li>
+        <li><span class="ap-n">3</span><div><b data-i18n="ap_gift_3_t">Leaders get time back</b><span data-i18n="ap_gift_3_d">More hours with 400+ children, and the relationships that make lasting change possible.</span></div></li>
+      </ol>
+
+      <h3 class="ap-h3" data-i18n="ap_prog_title">Where the app stands</h3>
+      <p class="ap-h3-sub" data-i18n="ap_prog_sub">Since October I have redesigned the whole app and implemented server architecture.</p>
+      <div class="ap-prog" data-pct="60" data-last="30">
+        <div class="ap-prog-head"><span data-i18n="ap_prog_label">Build progress <small>(my estimate)</small></span><span class="ap-pct">60%</span></div>
+        <div class="ap-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-label="Build progress"><i style="width:60%"></i><u style="left:30%"></u><span class="ap-last" style="left:30%" data-i18n="ap_last_label">October: 30%</span></div>
+        <div class="ap-stages" aria-label="Project stages">
+          <div class="ap-stage done"><div class="ap-dot">✓</div><div><b data-i18n="ap_stage_1">Works on the phone</b><span class="ap-state" data-i18n="ap_stage_1_s">Done · still polishing</span></div></div>
+          <div class="ap-stage now"><div class="ap-dot">2</div><div><b data-i18n="ap_stage_2">Connects to server</b><span class="ap-state" data-i18n="ap_stage_2_s">In progress</span></div></div>
+          <div class="ap-stage next"><div class="ap-dot">3</div><div><b data-i18n="ap_stage_3">Tested with real leaders in Windhoek</b><span class="ap-state" data-i18n="ap_stage_3_s">early 2027</span></div></div>
+        </div>
+      </div>
+
+      <h3 class="ap-h3" data-i18n="ap_see_title">See it in action</h3>
+      <p class="ap-h3-sub" data-i18n="ap_see_sub">Screen recordings of the new design.</p>
+      <div class="ap-hint" data-i18n="ap_swipe">Swipe →</div>
+      <div class="ap-cards">
+        <div class="ap-card"><video class="ap-vid" src="video/1.mp4" poster="img/ap-checkin.jpg" width="480" height="938" muted loop playsinline preload="metadata" aria-label="Screen recording: checking in a whole class"></video><h3 data-i18n="ap_card_1">Clear overview of classes and students, simple check-in</h3></div>
+        <div class="ap-card"><video class="ap-vid" src="video/2.mp4" poster="img/ap-calendar.jpg" width="480" height="938" muted loop playsinline preload="metadata" aria-label="Screen recording: from the calendar to a class session"></video><h3 data-i18n="ap_card_2">Calendar & classes management</h3></div>
+        <div class="ap-card"><video class="ap-vid" src="video/3.mp4" poster="img/ap-export.jpg" width="480" height="938" muted loop playsinline preload="metadata" aria-label="Screen recording: student profile with attendance history"></video><h3 data-i18n="ap_card_3">Student profile & attendance</h3></div>
+        <div class="ap-card"><video class="ap-vid" src="video/4.mp4" poster="img/ap-export.jpg" width="480" height="938" muted loop playsinline preload="metadata" aria-label="Screen recording: exporting attendance to a CSV file"></video><h3 data-i18n="ap_card_4">Attendance reports export option</h3></div>
+      </div>
+
+      <div class="ap-cta">
+        <h3 data-i18n="ap_cta_title">Help me finish it and carry it to Windhoek.</h3>
+        <p data-i18n="ap_cta_text">Next up: server sync, feature polishing, and a test with real leaders at the beginning of 2027. Every donation moves both the app and the trip forward.</p>
+        <a href="https://whydonate.com/en/fundraising/iulia" target="_blank" rel="noopener" class="donate-button" data-i18n="ap_cta_btn">Support the app and the trip</a>
+        <small data-i18n="ap_cta_small">Your donation does not go in my pocket. Living in the Netherlands? It is tax-deductible, <a href="#donate" style="color:#ffb347">see how</a>.</small>
+      </div>
+
+      <details class="ap-archive">
+        <summary><span class="ap-sum-main"><span class="ap-badge ap-old-badge" data-i18n="ap_old_badge">Old UI</span> <span data-i18n="ap_old_title">Update 1 · October</span></span><span class="ap-sum-r"><span data-i18n="ap_old_sum">Login, classes, calendar</span> <span class="ap-arrow">▸</span></span></summary>
+        <p class="ap-old-note" data-i18n="ap_old_note">This is how the app looked before the redesign. I keep it here as a record of the journey.</p>
+        <div class="ap-hint" data-i18n="ap_swipe">Swipe →</div>
+        <div class="ap-cards three">
+          <div class="ap-card old"><img src="img/appLogin.jpeg" alt="Old design: login screen" loading="lazy"><h3 data-i18n="ap_old_1_t">Local login</h3><p data-i18n="ap_old_1_d">Created before server implementation.</p></div>
+          <div class="ap-card old"><img src="img/appNewClass1.jpeg" alt="Old design: creating a class" loading="lazy"><h3 data-i18n="ap_old_2_t">Create classes</h3><p data-i18n="ap_old_2_d">One-time or recurring.</p></div>
+          <div class="ap-card old"><img src="img/appCalendar.jpeg" alt="Old design: calendar" loading="lazy"><h3 data-i18n="ap_old_3_t">A calendar</h3><p data-i18n="ap_old_3_d">Every class in one place.</p></div>
+        </div>
+      </details>
+    </div>
+  </section>
 
   <!-- The Why Section - bg-black -->
   <section id="the-why" class="page-section bg-black">
@@ -323,79 +513,14 @@
   <span data-i18n="fab_donate">DONATE</span>
 </a>
 
-<!-- News Journal Floating Trigger -->
-<div class="news-trigger" data-bs-toggle="modal" data-bs-target="#newsModal">
+<!-- Floating trigger (prototype): scrolls to the section instead of opening a modal -->
+<a href="#app-progress" class="news-trigger" style="text-decoration:none">
   <div class="pulse-dot"></div>
   <div class="trigger-text">
-    <b data-i18n="news_trigger_title">Live App Update</b>
-    <span data-i18n="news_trigger_subtitle">Development in progress</span>
+    <b data-i18n="ap_trigger_title">New: why I'm building an app</b>
+    <span data-i18n="ap_trigger_sub">Update 2 · See what's built</span>
   </div>
-</div>
-
-<!-- News Journal Modal -->
-<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="newsModalLabel" data-i18n="news_modal_title">DEVELOPMENT LOG</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="news-progress-box">
-          <div class="news-progress-label">
-            <span data-i18n="news_progress_label">Build Progress</span>
-            <span>15%</span>
-          </div>
-          <div class="news-progress-bar">
-            <div class="news-progress-fill" ></div>
-          </div>
-        </div>
-
-        <div class="p-4 text-center border-bottom bg-black">
-          <h4 class="fw-bold mb-3" style="color: var(--orange);" data-i18n="news_intro_title">I am developing a mobile app for the base!</h4>
-          <p class="news-entry-text mb-3" style="font-style: italic; font-size: 0.95rem;" data-i18n="news_intro_text_full">Behind every successful community project, there is a mountain of administrative work. The leaders from projects like Kids Club are almost drowning in paper attendance and administration documents that are messy and time consuming. Time that can be spent with and on the community.<br><br>To fix this, I am developing a dedicated mobile application designed specifically to take the heavy lifting out of administration by replacing messy spreadsheets and manual paperwork with a seamless digital solution.</p>
-          <p class="news-entry-text mb-0" style="font-weight: 700; font-size: 0.9rem;" data-i18n="news_update_invitation">Below I'll give a rough overview of my progress so far. Check it regularly for updates!</p>
-        </div>
-        
-        <div class="news-journal-content">
-          <!-- Entry 1: Login -->
-          <div class="news-entry">
-            <div class="news-phone-frame">
-              <img src="img/appLogin.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="App Login Screen">
-            </div>
-            <h4 class="news-entry-title" data-i18n="news_entry_1_title">Secure Access</h4>
-            <p class="news-entry-text" data-i18n="news_entry_1_text">I've implemented a simple, local login system for the YWAM base leaders. Near future developments will include enhanced security features. This ensures that sensitive community data and project records are protected and only accessible to authorized personnel.</p>
-          </div>
-
-          <!-- Entry 2: Data Entry (Now 2nd) -->
-          <div class="news-entry">
-            <div class="news-phone-frame">
-              <img src="img/appNewClass1.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="App Data Entry Screen">
-            </div>
-            <h4 class="news-entry-title" data-i18n="news_entry_2_title">Data for Impact</h4>
-            <p class="news-entry-text" data-i18n="news_entry_2_text">By digitizing class registrations and community entries, leaders can create and plan one-time or recurring projects more effectively.</p>
-          </div>
-
-          <!-- Entry 3: Calendar (Now 3rd) -->
-          <div class="news-entry">
-            <div class="news-phone-frame">
-              <img src="img/appCalendar.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="App Calendar Screen">
-            </div>
-            <h4 class="news-entry-title" data-i18n="news_entry_3_title">Scheduling Hope</h4>
-            <p class="news-entry-text" data-i18n="news_entry_3_text">An important feature for leaders is the calendar. It allows the team to organize weekly outreaches, kids' clubs, and workshops, ensuring no community is left behind. Future developments here include reminders and class notifications.</p>
-          </div>
-        </div>
-
-        <div class="news-cta-box">
-          <a href="https://whydonate.com/en/fundraising/iulia" target="_blank" class="donate-button" data-i18n="news_cta_btn">Support the Deployment</a>
-          <p class="small mt-3 mb-0" style="color: #666;" data-i18n="news_cta_note">Your donation doesn't go in my pocket. It helps fund prospective hardware costs and ultimately digitalizes local community's project administration. 
-
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</a>
 
 <footer>
   <div class="container">
@@ -433,7 +558,10 @@
     if (!translations[currentLang]) return;
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (translations[currentLang][key]) {
+      if (key === 'ap_last_label' && translations[currentLang][key]) {
+              const pr = document.querySelector('.ap-prog');
+              el.textContent = translations[currentLang][key].replace('{n}', pr ? pr.dataset.last : '');
+          } else if (translations[currentLang][key]) {
           // Robust check for HTML tags
           if (translations[currentLang][key].indexOf('<') !== -1) {
               el.innerHTML = translations[currentLang][key];
@@ -533,6 +661,22 @@
       }
     }, 350); // Small delay to allow modal to close
   }
+</script>
+<script>
+  (function(){var p=document.querySelector('.ap-prog[data-pct]');if(!p)return;
+    var v=+p.dataset.pct,l=+p.dataset.last,b=p.querySelector('.ap-bar'),t=p.querySelector('.ap-last');
+    p.querySelector('.ap-pct').textContent=v+'%';b.querySelector('i').style.width=v+'%';
+    b.querySelector('u').style.left=l+'%';t.style.left=l+'%';t.textContent='October: '+l+'%';
+    b.setAttribute('aria-valuenow',v);})();
+</script>
+<script>
+  (function(){var vs=document.querySelectorAll('.ap-vid');if(!vs.length)return;
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce||!('IntersectionObserver' in window)){vs.forEach(function(v){v.controls=true});return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){e.target.controls=true;});}else{e.target.pause();}
+    });},{threshold:0.5});
+    vs.forEach(function(v){io.observe(v)});})();
 </script>
 </body>
 </html>
